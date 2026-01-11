@@ -1,0 +1,52 @@
+.badge {
+    display: inline-flex;
+    padding: 4px 0px 4px 4px;
+    border-radius: 7px;
+    background-color: var(--color-bg-button);
+    border: 1px solid var(--color-border-button);
+    transition: 250ms;
+    cursor: pointer;
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+.badge-text {
+    font-size: 14px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    line-height: 20px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.badge-img {
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+}
+
+.badge:hover {
+    background-color: var(--color-bg-button-hover);
+    border-color: var(--color-bg-button-hover);
+}
+
+.badge.small {
+    padding: 2px 0px 2px 2px;
+    height: 15px;
+    margin-top: 11px;
+    margin-left: 6px;
+
+.badge-img.small {
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+}
+
+.badge-text.small {
+    font-size: 12px;
+    line-height: 10px;
+    margin-block-end: 0;
+    margin-block-start: 3;
+    margin-left: 5px;
+    margin-right: 5px;
+}

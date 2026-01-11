@@ -1,0 +1,9 @@
+.timestamp {
+    font-size: 14px;
+    font-family: monospace;
+    font-weight: 300;
+    background-color: var(--color-overlay);
+    padding: 2px 5px 2px 5px;
+    border-radius: 3px;
+    line-height: 10px;
+}

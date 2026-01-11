@@ -1,0 +1,164 @@
+/* --- Base Styles --- */
+.fancy-button {
+	padding: 7px 7px 7px 7px;
+	border-radius: 7px;
+	background-color: var(--color-bg-button);
+	border: 1px solid var(--color-border-button);
+	transition: 250ms;
+	cursor: pointer;
+	font-family: NunitoSans;
+	min-width: 38px !important;
+	min-height: 38px;
+	display: flex; /* Исправлено: убраны кавычки */ /* Исправлено: убраны кавычки */
+	flex-wrap: wrap;
+	align-items: center; /* Добавлено для выравнивания */
+	justify-content: center; /* Добавлено для центрирования контента */
+	width: fit-content;
+}
+
+.fancy-button:focus-visible {
+	transform: scale(0.85);
+}
+
+.fancy-button-text {
+	height: 20px;
+	position: relative;
+	margin-left: 8px;
+	margin-right: 8px;
+	color: var(--color-text-primary); /* Используем переменную */
+	line-height: 20px; /* Выравнивание текста по вертикали */
+	width: fit-content;
+}
+
+.fancy-button:hover {
+	background-color: var(--color-bg-button-hover);
+}
+
+.fancy-button.fill {
+	flex: 1 1 auto;
+	min-width: max-content;
+}
+
+/* --- Variants: Secondary (Blue) --- */
+/* Соответствует вашей "contrast" или "blue" логике */
+.fancy-button.secondary,
+.fancy-button.blue {
+	background-color: var(--color-bg-button-blue);
+	border: 1px solid var(--color-border-button-blue);
+}
+
+.fancy-button.secondary:hover,
+.fancy-button.blue:hover {
+	background-color: var(--color-bg-button-blue-hover);
+}
+
+/* --- Variant: Good (Success) --- */
+.fancy-button.good {
+	background-color: var(--color-accent-green);
+	border: 1px solid var(--color-accent-green);
+	color: var(--color-text-primary);
+}
+
+.fancy-button.good:hover {
+	background-color: var(
+		--color-accent-green-hover
+	); /* Используем акцентный зеленый для ховера */
+	border-color: var(--color-accent-green-hover);
+}
+
+/* --- Variant: Bad (Error) --- */
+.fancy-button.bad {
+	background-color: var(--color-accent-red);
+	border: 1px solid var(--color-accent-red);
+	color: var(--color-text-primary);
+}
+
+.fancy-button.bad:hover {
+	background-color: var(
+		--color-accent-red-hover
+	); /* Используем акцентный красный/бордовый */
+	border-color: var(--color-accent-red-hover);
+}
+
+/* --- Variant: Danger (Warning) --- */
+.fancy-button.danger {
+	background-color: var(--color-accent-orange);
+	border: 1px solid var(--color-accent-orange);
+	color: var(--color-text-primary);
+}
+
+.fancy-button.danger:hover {
+	/* Т.к. отдельного hover цвета для warning нет, делаем чуть светлее/ярче */
+	background-color: var(--color-accent-orange-light);
+	border: 1px solid var(--color-accent-orange-light);
+}
+
+/* --- Variant: Transparent --- */
+.fancy-button.transparent {
+	background-color: var(--color-bg-transparent);
+	border: 1px solid var(--color-border-transparent);
+}
+
+.fancy-button.transparent:hover {
+	background-color: var(--color-bg-transparent-hover);
+}
+
+/* --- Disabled State --- */
+/* Объединяем все селекторы disabled для единого стиля */
+.fancy-button:disabled,
+.fancy-button.secondary:disabled,
+.fancy-button.blue:disabled,
+.fancy-button.good:disabled,
+.fancy-button.bad:disabled,
+.fancy-button.danger:disabled {
+	color: var(--color-text-disabled);
+	background-color: var(--color-bg-button-disabled);
+	border-color: var(
+		--color-bg-button-disabled-border
+	); /* Используем border переменную */
+	cursor: not-allowed;
+	transform: none; /* Отключаем анимацию нажатия */
+}
+
+/* --- Images & Icons --- */
+.button-img {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	/* margin-bottom: -5px; <- Это может ломать центрирование flex, лучше использовать align-items: center у родителя */
+	object-fit: contain;
+}
+
+.button-img.icon {
+	height: 14px;
+	width: 14px;
+	padding: 4px 2px;
+	color: var(--color-text-primary);
+}
+
+.fancy-button.tiny {
+	min-width: 28px !important;
+	min-height: 28px !important;
+	width: fit-content !important;
+	height: 28px !important;
+
+	padding: 0 !important;
+	border-radius: 6px;
+	font-size: 12px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fancy-button.tiny .button-img.icon {
+	height: 12px !important;
+	width: 12px !important;
+	padding: 0;
+	margin: 0;
+	color: var(--color-text-primary);
+}
+
+.fancy-button.keyboard {
+	border-bottom: 3px solid var(--color-border-button);
+}

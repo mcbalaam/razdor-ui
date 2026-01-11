@@ -1,0 +1,56 @@
+.toast-stack-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	z-index: 9999;
+}
+
+.toast-position-group {
+	position: fixed;
+	pointer-events: none;
+}
+
+.toast-position-group > * {
+	pointer-events: auto;
+}
+
+/* Position groups */
+.toast-position-group.toast-top-right {
+	top: 0;
+	right: 0;
+}
+
+.toast-position-group.toast-top-left {
+	top: 0;
+	left: 0;
+}
+
+.toast-position-group.toast-top-center {
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.toast-position-group.toast-bottom-right {
+	bottom: 0;
+	right: 0;
+}
+
+.toast-position-group.toast-bottom-left {
+	bottom: 0;
+	left: 0;
+}
+
+.toast-position-group.toast-bottom-center {
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+/* Toast spacing within groups */
+.toast-position-group .toast-notification {
+	margin-bottom: 12px;
+}
