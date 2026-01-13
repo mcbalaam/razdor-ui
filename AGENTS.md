@@ -95,7 +95,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Component from ".";
 
 const meta = {
-  title: "UI/ComponentName",
+  title: "COMPONENTS/ComponentName",
   component: Component,
   parameters: {
     layout: "centered",

@@ -16,14 +16,14 @@ export function Box({
       className={`box${className ? " " + className : ""}`}
       style={style}
     >
+      <div className="box-content">
+        {children}
+      </div>
       {actions && (
         <div className="box-actions">
           {actions}
         </div>
       )}
-      <div className="box-content">
-        {children}
-      </div>
     </div>
   );
 }

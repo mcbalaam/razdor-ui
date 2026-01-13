@@ -1,0 +1,18 @@
+.modal-popup.small {
+    max-width: 300px;
+}
+
+.modal-popup.medium {
+    max-width: 500px;
+}
+
+.modal-popup.large {
+    max-width: 800px;
+}
+
+.modal-popup.fullscreen {
+    max-width: calc(100vw - 40px);
+    max-height: calc(100vh - 40px);
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+}

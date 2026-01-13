@@ -15,7 +15,7 @@ import "../../index.css";
 
 // 1. Конфигурация компонента (Meta)
 const meta = {
-	title: "UI/Button", // Название в боковой панели Storybook
+	title: "COMPONENTS/Button", // Название в боковой панели Storybook
 	component: Button,
 	parameters: {
 		layout: "centered", // Центрируем кнопку на экране
