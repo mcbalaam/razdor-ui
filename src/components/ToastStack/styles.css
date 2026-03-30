@@ -6,51 +6,103 @@
 	bottom: 0;
 	pointer-events: none;
 	z-index: 9999;
+	display: flex;
+	flex-direction: column;
 }
 
 .toast-position-group {
-	position: fixed;
+	position: absolute;
 	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 20px;
 }
 
-.toast-position-group > * {
-	pointer-events: auto;
+/* top — новые снизу, толкают старые вверх */
+.toast-position-group.toast-top-right,
+.toast-position-group.toast-top-left,
+.toast-position-group.toast-top-center {
+	flex-direction: column-reverse;
 }
 
-/* Position groups */
-.toast-position-group.toast-top-right {
-	top: 0;
-	right: 0;
-}
-
-.toast-position-group.toast-top-left {
-	top: 0;
-	left: 0;
-}
-
+.toast-position-group.toast-top-right { top: 0; right: 0; }
+.toast-position-group.toast-top-left  { top: 0; left: 0; }
 .toast-position-group.toast-top-center {
 	top: 0;
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-.toast-position-group.toast-bottom-right {
-	bottom: 0;
-	right: 0;
-}
-
-.toast-position-group.toast-bottom-left {
-	bottom: 0;
-	left: 0;
-}
-
+/* bottom — новые сверху, толкают старые вниз */
+.toast-position-group.toast-bottom-right { bottom: 0; right: 0; }
+.toast-position-group.toast-bottom-left  { bottom: 0; left: 0; }
 .toast-position-group.toast-bottom-center {
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
 }
 
-/* Toast spacing within groups */
-.toast-position-group .toast-notification {
-	margin-bottom: 12px;
+.toast-position-group > * {
+	pointer-events: auto;
+}
+
+.toast-wrapper {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.2s ease-in, opacity 0.2s ease-in;
+	opacity: 1;
+}
+
+.toast-wrapper.removing {
+	grid-template-rows: 0fr;
+	opacity: 0;
+}
+
+.toast-wrapper {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.2s ease-in, opacity 0.2s ease-in;
+}
+
+.toast-wrapper.removing {
+	grid-template-rows: 0fr;
+	opacity: 0;
+}
+
+/* анимация входа через враппер не работает — оставь на .toast-notification */
+.toast-wrapper.top .toast-notification {
+	animation: toastSlideIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-wrapper.bottom .toast-notification {
+	animation: toastSlideInBottom 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-wrapper.top.removing .toast-notification {
+	animation: toastSlideOut 0.2s ease-in forwards;
+}
+
+.toast-wrapper.bottom.removing .toast-notification {
+	animation: toastSlideOutBottom 0.2s ease-in forwards;
+}
+
+.toast-position-group.toast-top-right,
+.toast-position-group.toast-bottom-right {
+    align-items: flex-end;
+}
+
+.toast-position-group.toast-top-left,
+.toast-position-group.toast-bottom-left {
+    align-items: flex-start;
+}
+
+.toast-position-group.toast-top-center,
+.toast-position-group.toast-bottom-center {
+    align-items: center;
+}
+
+.toast-wrapper {
+    width: fit-content;
+    /* остальное без изменений */
 }

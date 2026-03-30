@@ -10,7 +10,7 @@ import ToastNotification, {
 } from "../ToastNotification";
 import "./styles.css";
 
-export type ToastOptions = Omit<ToastNotificationProps, "onClose"> & {
+export type ToastOptions = Omit<ToastNotificationProps, "onClose" | "closing"> & {
 	id?: string;
 };
 
@@ -19,9 +19,7 @@ export type ToastStackContextType = {
 	removeToast: (id: string) => void;
 };
 
-export const ToastStackContext = createContext<ToastStackContextType | null>(
-	null,
-);
+export const ToastStackContext = createContext<ToastStackContextType | null>(null);
 
 export function useToastStack(): ToastStackContextType {
 	const context = useContext(ToastStackContext);
@@ -40,25 +38,18 @@ export default function ToastStack({
 	children,
 	maxToasts = 5,
 }: ToastStackProps) {
-	const [toasts, setToasts] = useState<Array<ToastOptions & { id: string }>>(
-		[],
-	);
+	const [toasts, setToasts] = useState<Array<ToastOptions & { id: string }>>([]);
 
 	const addToast = useCallback(
 		(options: ToastOptions): string => {
 			const id = options.id || Math.random().toString(36).substring(2, 9);
-
 			setToasts((prev) => {
-				// If we have max toasts, remove the oldest ones to make room
 				const currentToasts =
 					maxToasts && prev.length >= maxToasts
 						? prev.slice(prev.length - maxToasts + 1)
 						: prev;
-
-				// Add new toast to the end (new toasts push older ones)
 				return [...currentToasts, { ...options, id }];
 			});
-
 			return id;
 		},
 		[maxToasts],
@@ -68,13 +59,10 @@ export default function ToastStack({
 		setToasts((prev) => prev.filter((toast) => toast.id !== id));
 	}, []);
 
-	// Group toasts by position for proper stacking
 	const toastsByPosition = toasts.reduce(
 		(groups, toast) => {
 			const position = toast.position || "top-right";
-			if (!groups[position]) {
-				groups[position] = [];
-			}
+			if (!groups[position]) groups[position] = [];
 			groups[position].push(toast);
 			return groups;
 		},
@@ -108,7 +96,6 @@ export default function ToastStack({
 	);
 }
 
-// Component to handle stacking for a specific position
 function ToastPositionGroup({
 	position,
 	toasts,
@@ -118,51 +105,38 @@ function ToastPositionGroup({
 	toasts: Array<ToastOptions & { id: string }>;
 	onRemove: (id: string) => void;
 }) {
+	const [removing, setRemoving] = useState<Set<string>>(new Set());
+
+	const handleRemove = (id: string) => {
+		setRemoving((prev) => new Set(prev).add(id));
+		setTimeout(() => {
+			onRemove(id);
+		}, 200);
+	};
+
+	const isBottom = position?.startsWith("bottom");
+
 	return (
 		<div className={`toast-position-group toast-${position}`}>
-			{toasts.map((toast, index) => (
-				<ToastNotification
+			{toasts.map((toast) => (
+				<div
 					key={toast.id}
-					{...toast}
-					position={position}
-					onClose={() => onRemove(toast.id)}
-					style={{
-						...toast.style,
-						// Add vertical spacing for stacking
-						...getStackPositionStyle(position, index),
-					}}
-				/>
+					className={`toast-wrapper${removing.has(toast.id) ? " removing" : ""} ${isBottom ? "bottom" : "top"}`}
+				>
+					<div>
+						<ToastNotification
+							{...toast}
+							position={position}
+							closing={removing.has(toast.id)}
+							onClose={() => handleRemove(toast.id)}
+						/>
+					</div>
+				</div>
 			))}
 		</div>
 	);
 }
 
-function getStackPositionStyle(
-	position: ToastOptions["position"],
-	index: number,
-): React.CSSProperties {
-	const baseSpacing = 80; // pixels between toasts
-	const initialMargin = 20; // initial margin from screen edge
-
-	switch (position) {
-		case "top-right":
-		case "top-left":
-		case "top-center":
-			return {
-				top: `${initialMargin + index * baseSpacing}px`,
-			};
-		case "bottom-right":
-		case "bottom-left":
-		case "bottom-center":
-			return {
-				bottom: `${initialMargin + index * baseSpacing}px`,
-			};
-		default:
-			return {};
-	}
-}
-
-// Convenience hook for creating toasts
 export function useCreateToast() {
 	const { addToast } = useToastStack();
 
