@@ -18,7 +18,6 @@ const meta: Meta<typeof ToastStack> = {
 export default meta;
 type Story = StoryObj<typeof ToastStack>;
 
-// Demo component that shows how to use the toast stack
 export const BasicUsage: Story = {
 	render: () => {
 		const DemoComponent = () => {
@@ -90,7 +89,7 @@ export const BasicUsage: Story = {
 									children:
 										"Failed to fetch configuration: examine the log output",
 									icon: faXmarkCircle,
-									duration: 0, // Won't auto-close
+									duration: 0,
 								})
 							}
 						>
@@ -101,7 +100,6 @@ export const BasicUsage: Story = {
 					<Button
 						color="secondary"
 						onClick={() => {
-							// Create multiple toasts at once
 							createToast({
 								children: "First toast",
 								type: "info",
@@ -125,7 +123,6 @@ export const BasicUsage: Story = {
 					<Button
 						color="transparent"
 						onClick={() => {
-							// Create toast with custom position
 							createToast({
 								children: "This toast is at bottom-left",
 								type: "info",

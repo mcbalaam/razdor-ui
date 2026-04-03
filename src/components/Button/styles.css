@@ -1,4 +1,3 @@
-/* --- Base Styles --- */
 .fancy-button {
 	padding: 7px 7px 7px 7px;
 	border-radius: 7px;
@@ -9,10 +8,9 @@
 	font-family: NunitoSans;
 	min-width: 38px !important;
 	min-height: 38px;
-	display: flex; /* Исправлено: убраны кавычки */ /* Исправлено: убраны кавычки */
+	display: flex;
 	flex-wrap: wrap;
-	align-items: center; /* Добавлено для выравнивания */
-	justify-content: center; /* Добавлено для центрирования контента */
+	align-items: center;
 	width: fit-content;
 }
 
@@ -25,8 +23,8 @@
 	position: relative;
 	margin-left: 8px;
 	margin-right: 8px;
-	color: var(--color-text-primary); /* Используем переменную */
-	line-height: 20px; /* Выравнивание текста по вертикали */
+	color: var(--color-text-primary);
+	line-height: 20px;
 	width: fit-content;
 }
 
@@ -39,8 +37,6 @@
 	min-width: max-content;
 }
 
-/* --- Variants: Secondary (Blue) --- */
-/* Соответствует вашей "contrast" или "blue" логике */
 .fancy-button.secondary,
 .fancy-button.blue {
 	background-color: var(--color-bg-button-blue);
@@ -52,7 +48,6 @@
 	background-color: var(--color-bg-button-blue-hover);
 }
 
-/* --- Variant: Good (Success) --- */
 .fancy-button.good {
 	background-color: var(--color-accent-green);
 	border: 1px solid var(--color-accent-green);
@@ -62,11 +57,10 @@
 .fancy-button.good:hover {
 	background-color: var(
 		--color-accent-green-hover
-	); /* Используем акцентный зеленый для ховера */
+	);
 	border-color: var(--color-accent-green-hover);
 }
 
-/* --- Variant: Bad (Error) --- */
 .fancy-button.bad {
 	background-color: var(--color-accent-red);
 	border: 1px solid var(--color-accent-red);
@@ -76,11 +70,10 @@
 .fancy-button.bad:hover {
 	background-color: var(
 		--color-accent-red-hover
-	); /* Используем акцентный красный/бордовый */
+	);
 	border-color: var(--color-accent-red-hover);
 }
 
-/* --- Variant: Danger (Warning) --- */
 .fancy-button.danger {
 	background-color: var(--color-accent-orange);
 	border: 1px solid var(--color-accent-orange);
@@ -88,12 +81,10 @@
 }
 
 .fancy-button.danger:hover {
-	/* Т.к. отдельного hover цвета для warning нет, делаем чуть светлее/ярче */
 	background-color: var(--color-accent-orange-light);
 	border: 1px solid var(--color-accent-orange-light);
 }
 
-/* --- Variant: Transparent --- */
 .fancy-button.transparent {
 	background-color: var(--color-bg-transparent);
 	border: 1px solid var(--color-border-transparent);
@@ -103,8 +94,6 @@
 	background-color: var(--color-bg-transparent-hover);
 }
 
-/* --- Disabled State --- */
-/* Объединяем все селекторы disabled для единого стиля */
 .fancy-button:disabled,
 .fancy-button.secondary:disabled,
 .fancy-button.blue:disabled,
@@ -115,17 +104,15 @@
 	background-color: var(--color-bg-button-disabled);
 	border-color: var(
 		--color-bg-button-disabled-border
-	); /* Используем border переменную */
+	);
 	cursor: not-allowed;
-	transform: none; /* Отключаем анимацию нажатия */
+	transform: none;
 }
 
-/* --- Images & Icons --- */
 .button-img {
 	height: 20px;
 	width: 20px;
 	position: relative;
-	/* margin-bottom: -5px; <- Это может ломать центрирование flex, лучше использовать align-items: center у родителя */
 	object-fit: contain;
 }
 

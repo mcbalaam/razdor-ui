@@ -1,12 +1,7 @@
-/**
- * Simple example demonstrating ToastStack usage
- */
-
 import ToastStack, { useCreateToast } from ".";
 import Button from "../Button";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
-// Main App component with ToastStack
 function App() {
 	return (
 		<ToastStack maxToasts={5}>
@@ -15,7 +10,6 @@ function App() {
 	);
 }
 
-// Demo component that uses the toast system
 function DemoComponent() {
 	const { createToast, createInfoToast, createSuccessToast } = useCreateToast();
 
@@ -49,7 +43,6 @@ function DemoComponent() {
 			<Button
 				color="secondary"
 				onClick={() => {
-					// Create multiple toasts to demonstrate stacking
 					createToast({
 						children: "First toast",
 						type: "info",

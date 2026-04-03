@@ -1,0 +1,113 @@
+.menu-picker {
+	position: relative;
+	display: inline-block;
+	min-width: 220px;
+	font-family: NunitoSans;
+}
+
+.menu-picker-toggle {
+	width: 100%;
+	padding: 7px 10px;
+	border-radius: 7px;
+	background-color: var(--color-bg-button);
+	border: 1px solid var(--color-border-button);
+	color: var(--color-text-primary);
+	transition: 250ms;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	min-height: 38px;
+}
+
+.menu-picker-toggle:focus-visible {
+	transform: scale(0.98);
+	outline: none;
+}
+
+.menu-picker-toggle:hover {
+	background-color: var(--color-bg-button-hover);
+}
+
+.menu-picker-toggle.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.menu-picker-toggle-text {
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.menu-picker-chevron {
+	width: 8px;
+	height: 8px;
+	border-right: 2px solid var(--color-text-tertiary);
+	border-bottom: 2px solid var(--color-text-tertiary);
+	transform: rotate(45deg);
+	transition: transform 180ms ease-in-out;
+	flex-shrink: 0;
+	margin-right: 2px;
+}
+
+.menu-picker-chevron.open {
+	transform: rotate(-135deg);
+}
+
+.menu-picker-popover {
+	position: absolute;
+	top: calc(100% + 6px);
+	left: 0;
+	right: 0;
+	background-color: var(--color-bg-secondary);
+	border-radius: 10px;
+	border: 1px solid var(--color-border-primary);
+	box-shadow: 0px 0px 23px 5px var(--color-shadow);
+	padding: 6px;
+	z-index: 1000;
+}
+
+.menu-picker-option-button {
+	width: 100%;
+	border: none;
+	background: transparent;
+	padding: 8px 10px;
+	border-radius: 8px;
+	color: var(--color-text-primary);
+	font-family: NunitoSans;
+	text-align: left;
+	cursor: pointer;
+	transition: 180ms;
+}
+
+.menu-picker-option-button:hover {
+	background-color: var(--color-bg-button-hover);
+}
+
+.menu-picker-option-button.selected {
+	background-color: var(--color-bg-button-blue);
+	border: 1px solid var(--color-border-button-blue);
+}
+
+.menu-picker-option-button.disabled {
+	opacity: 0.55;
+	cursor: not-allowed;
+}
+
+.menu-picker-option {
+	border-radius: 8px;
+}
+
+.menu-picker-option.selected {
+	background-color: rgba(88, 101, 242, 0.14);
+}
+
+.menu-picker-option.disabled {
+	opacity: 0.65;
+}
+

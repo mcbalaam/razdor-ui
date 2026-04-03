@@ -19,7 +19,6 @@
 	padding: 20px;
 }
 
-/* top — новые снизу, толкают старые вверх */
 .toast-position-group.toast-top-right,
 .toast-position-group.toast-top-left,
 .toast-position-group.toast-top-center {
@@ -34,7 +33,6 @@
 	transform: translateX(-50%);
 }
 
-/* bottom — новые сверху, толкают старые вниз */
 .toast-position-group.toast-bottom-right { bottom: 0; right: 0; }
 .toast-position-group.toast-bottom-left  { bottom: 0; left: 0; }
 .toast-position-group.toast-bottom-center {
@@ -48,29 +46,20 @@
 }
 
 .toast-wrapper {
-	display: grid;
-	grid-template-rows: 1fr;
-	transition: grid-template-rows 0.2s ease-in, opacity 0.2s ease-in;
+	display: block;
 	opacity: 1;
+	overflow: hidden;
+	max-height: 600px;
+	transition: max-height 0.28s ease-in, opacity 0.28s ease-in;
+	position: relative;
+	z-index: auto;
 }
 
 .toast-wrapper.removing {
-	grid-template-rows: 0fr;
+	max-height: 0px;
 	opacity: 0;
 }
 
-.toast-wrapper {
-	display: grid;
-	grid-template-rows: 1fr;
-	transition: grid-template-rows 0.2s ease-in, opacity 0.2s ease-in;
-}
-
-.toast-wrapper.removing {
-	grid-template-rows: 0fr;
-	opacity: 0;
-}
-
-/* анимация входа через враппер не работает — оставь на .toast-notification */
 .toast-wrapper.top .toast-notification {
 	animation: toastSlideIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -104,5 +93,4 @@
 
 .toast-wrapper {
     width: fit-content;
-    /* остальное без изменений */
 }

@@ -8,7 +8,10 @@
   "files": [
     "dist"
   ],
-  "scripts": {
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+    "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist --target browser --format esm --external react --external react-dom --external @fortawesome/fontawesome-svg-core",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
     "storybook": "storybook dev -p 6006",

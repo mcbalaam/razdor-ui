@@ -3,7 +3,8 @@ import {
 	useContext,
 	useState,
 	useCallback,
-	ReactNode,
+	type CSSProperties,
+	
 } from "react";
 import ToastNotification, {
 	type ToastNotificationProps,
@@ -69,20 +70,23 @@ export default function ToastStack({
 		{} as Record<string, Array<ToastOptions & { id: string }>>,
 	);
 
+	const POSITIONS = [
+		"top-right",
+		"top-left", 
+		"top-center",
+		"bottom-right",
+		"bottom-left",
+		"bottom-center",
+	] as const;
+
 	return (
 		<ToastStackContext.Provider value={{ addToast, removeToast }}>
 			{children}
 			<div className="toast-stack-container">
-				{[
-					"top-right",
-					"top-left",
-					"top-center",
-					"bottom-right",
-					"bottom-left",
-					"bottom-center",
-				].map(
+				{
+				POSITIONS.map(
 					(position) =>
-						toastsByPosition[position]?.length > 0 && (
+						(toastsByPosition[position]?.length ?? 0) > 0 && (
 							<ToastPositionGroup
 								key={position}
 								position={position}
@@ -118,21 +122,27 @@ function ToastPositionGroup({
 
 	return (
 		<div className={`toast-position-group toast-${position}`}>
-			{toasts.map((toast) => (
-				<div
-					key={toast.id}
-					className={`toast-wrapper${removing.has(toast.id) ? " removing" : ""} ${isBottom ? "bottom" : "top"}`}
-				>
-					<div>
-						<ToastNotification
-							{...toast}
-							position={position}
-							closing={removing.has(toast.id)}
-							onClose={() => handleRemove(toast.id)}
-						/>
+			{toasts.map((toast, index) => {
+				const depth = isBottom ? index : toasts.length - 1 - index;
+
+				return (
+					<div
+						key={toast.id}
+						className={`toast-wrapper${removing.has(toast.id) ? " removing" : ""} ${isBottom ? "bottom" : "top"
+							}`}
+						style={{ "--toast-depth": depth } as CSSProperties}
+					>
+						<div>
+							<ToastNotification
+								{...toast}
+								position={position}
+								closing={removing.has(toast.id)}
+								onClose={() => handleRemove(toast.id)}
+							/>
+						</div>
 					</div>
-				</div>
-			))}
+				);
+			})}
 		</div>
 	);
 }

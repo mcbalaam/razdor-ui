@@ -38,7 +38,7 @@ const meta: Meta<typeof ToastNotification> = {
 		},
 	},
 	args: {
-		duration: 0, // Отключаем автозакрытие для демо
+		duration: 0,
 		showCloseButton: true,
 	},
 	decorators: [

@@ -13,20 +13,17 @@ import Button from ".";
 import "./styles.css";
 import "../../index.css";
 
-// 1. Конфигурация компонента (Meta)
 const meta = {
-	title: "COMPONENTS/Button", // Название в боковой панели Storybook
+	title: "COMPONENTS/Button",
 	component: Button,
 	parameters: {
-		layout: "centered", // Центрируем кнопку на экране
+		layout: "centered",
 	},
-	tags: ["autodocs"], // Автоматически генерирует страницу Docs
+	tags: ["autodocs"],
 	argTypes: {
-		// Настройка контролов (элементов управления) в Storybook
 		fill: { control: "boolean" },
 		disabled: { control: "boolean" },
-		onClick: { action: "clicked" }, // Логирует клики во вкладке Actions
-		// Для иконок лучше скрыть сложный контрол или сделать выбор из списка (опционально)
+		onClick: { action: "clicked" },
 		faIcon: { control: false },
 	},
 } satisfies Meta<typeof Button>;
@@ -34,16 +31,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 2. Истории (Stories)
-
-// Базовая кнопка
 export const Default: Story = {
 	args: {
 		children: "Sample Button",
 	},
 };
 
-// Контрастная (синяя)
 export const Contrast: Story = {
 	args: {
 		children: "Contrast Button",
@@ -51,7 +44,6 @@ export const Contrast: Story = {
 	},
 };
 
-// С иконкой FontAwesome
 export const WithIcon: Story = {
 	args: {
 		children: "Icon Button",
@@ -59,7 +51,6 @@ export const WithIcon: Story = {
 	},
 };
 
-// Только иконка (без текста)
 export const IconOnly: Story = {
 	args: {
 		faIcon: faTrash,
@@ -67,7 +58,6 @@ export const IconOnly: Story = {
 	},
 };
 
-// С картинкой (используя ваш проп href как src)
 export const WithImage: Story = {
 	args: {
 		children: "With Image",
@@ -75,7 +65,6 @@ export const WithImage: Story = {
 	},
 };
 
-// Заблокированная (Disabled)
 export const Disabled: Story = {
 	args: {
 		children: "Forbidden",
@@ -138,10 +127,8 @@ export const Keyboard: Story = {
 };
 
 export const ButtonGroup: Story = {
-	// Вместо просто args, мы используем функцию render
 	render: () => (
 		<div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
-			{/* Ряд обычных кнопок */}
 			<div style={{ display: "flex", gap: "10px" }}>
 				<Button color="primary">Action</Button>
 				<Button color="transparent">Action</Button>
@@ -150,7 +137,6 @@ export const ButtonGroup: Story = {
 				</Button>
 			</div>
 
-			{/* Ряд статусных кнопок */}
 			<div style={{ display: "flex", gap: "10px" }}>
 				<Button color="good">Approve</Button>
 				<Button color="bad">Reject</Button>

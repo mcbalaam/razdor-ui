@@ -67,7 +67,7 @@
 .toast-message .fancy-button {
 	display: inline-flex;
 	line-height: 1;
-	margin: -4px -2px -2px -2px; /* отрицательный bottom margin для компенсации */
+	margin: -4px -2px -2px -2px;
 	transform: translateY(2px);
 	vertical-align: middle;
 }
@@ -89,6 +89,7 @@
 .toast-close-button svg {
 	height: 14px;
 	width: 14px;
+	margin-left: 3px;
 }
 
 /* Типы тостов */

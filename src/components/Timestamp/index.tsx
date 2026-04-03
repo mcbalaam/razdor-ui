@@ -11,16 +11,13 @@ export default function Timestamp({ ts }: TimestampProps) {
 
 	const parseTimestamp = (ts: string): Date => {
 		const num = Number(ts);
-
-		if (!Number.isNaN(num) && ts.length === 10) {
-			return new Date(num * 1000);
+		if (Number.isFinite(num)) {
+			if (num >= 1e12) return new Date(num); // ms
+			if (num >= 1e9) return new Date(num * 1000); // s
 		}
 
 		const parsed = new Date(ts);
-
-		if (!Number.isNaN(parsed.getTime())) {
-			return parsed;
-		}
+		if (!Number.isNaN(parsed.getTime())) return parsed;
 		return new Date();
 	};
 
@@ -36,13 +33,13 @@ export default function Timestamp({ ts }: TimestampProps) {
 		return () => clearInterval(interval);
 	}, [ts]);
 
-	const shortTime = date.toLocaleString("en-UK", {
+	const shortTime = date.toLocaleString("en-GB", {
 		hour: "2-digit",
 		minute: "2-digit",
 		hour12: false,
 	});
 
-	const fullDateTime = date.toLocaleString("en-UK", {
+	const fullDateTime = date.toLocaleString("en-GB", {
 		weekday: "short",
 		year: "numeric",
 		month: "2-digit",
