@@ -9,6 +9,3 @@ export { default as CheckboxGroup, CheckboxItem } from './components/CheckboxGro
 export { default as Accordion } from './components/Accordion'
 export { default as ToastStack } from './components/ToastStack'
 export { default as Tooltip } from './components/Tooltip'
-
-
-
