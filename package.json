@@ -1,6 +1,6 @@
 {
   "name": "@mcbalaam/razdor-ui",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "type": "module",
   "module": "dist/index.js",
   "main": "dist/index.js",
