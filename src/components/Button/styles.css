@@ -34,7 +34,7 @@
 
 .fancy-button.fill {
 	flex: 1 1 auto;
-	min-width: max-content;
+	min-width: 100%;
 }
 
 .fancy-button.secondary,
@@ -121,7 +121,7 @@
 	width: 14px;
 	padding: 4px 2px;
 	color: var(--color-text-primary);
-	margin-left: 2px;
+	margin-left: 3px;
 }
 
 .fancy-button.tiny {
