@@ -35,7 +35,7 @@
 
 .fancy-button.fill {
 	flex: 1 1 auto;
-	min-width: 100%;
+	min-width: 100% !important;
 }
 
 .fancy-button.secondary,
