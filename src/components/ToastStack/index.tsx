@@ -3,7 +3,7 @@ import {
 	useContext,
 	useState,
 	useCallback,
-	type CSSProperties,
+	type CSSProperties, type ReactNode
 	
 } from "react";
 import ToastNotification, {
@@ -90,7 +90,7 @@ export default function ToastStack({
 							<ToastPositionGroup
 								key={position}
 								position={position}
-								toasts={toastsByPosition[position]}
+								toasts={toastsByPosition[position] ?? []}
 								onRemove={removeToast}
 							/>
 						),
