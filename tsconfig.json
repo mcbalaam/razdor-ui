@@ -12,7 +12,6 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
-    "noEmit": true,
 
     // Best practices
     "strict": true,
@@ -30,6 +29,5 @@
     "declarationDir": "dist",
     "emitDeclarationOnly": false,
     "outDir": "dist",
-    "jsx": "react-jsx"
   }
 }
