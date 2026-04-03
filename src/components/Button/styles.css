@@ -12,6 +12,7 @@
 	flex-wrap: wrap;
 	align-items: center;
 	width: fit-content;
+	justify-content: center;
 }
 
 .fancy-button:focus-visible {
