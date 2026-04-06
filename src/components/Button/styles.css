@@ -39,13 +39,13 @@
 }
 
 .fancy-button.secondary,
-.fancy-button.blue {
+.fancy-button.contrast {
 	background-color: var(--color-bg-button-blue);
 	border: 1px solid var(--color-border-button-blue);
 }
 
 .fancy-button.secondary:hover,
-.fancy-button.blue:hover {
+.fancy-button.contrast:hover {
 	background-color: var(--color-bg-button-blue-hover);
 }
 
@@ -97,7 +97,7 @@
 
 .fancy-button:disabled,
 .fancy-button.secondary:disabled,
-.fancy-button.blue:disabled,
+.fancy-button.contrast:disabled,
 .fancy-button.good:disabled,
 .fancy-button.bad:disabled,
 .fancy-button.danger:disabled {

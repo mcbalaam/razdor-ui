@@ -71,6 +71,11 @@
 
 .accordion-panel-inner {
 	overflow: hidden;
-	padding: 0 12px 12px 12px;
+	padding: 0 12px;
+	transition: padding-bottom 200ms ease;
+}
+
+.accordion-panel.open .accordion-panel-inner {
+	padding-bottom: 12px;
 }
 

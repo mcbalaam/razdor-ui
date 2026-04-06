@@ -17,7 +17,7 @@ export default function Button({
   keyboard,
   type = "button",
 }: PropsWithChildren<{
-  color?: "primary" | "secondary" | "good" | "bad" | "danger" | "transparent" | "disabled"
+  color?: "primary" | "secondary" | "good" | "bad" | "danger" | "transparent" | "disabled" | "contrast"
   fill?: boolean;
   href?: string;
   onClick?: () => void;
