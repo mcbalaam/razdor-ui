@@ -1,0 +1,78 @@
+.select-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.select-label {
+	font-family: NunitoSans;
+	font-size: 14px;
+	color: var(--color-text-primary);
+	font-weight: 600;
+}
+
+.select-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	border-radius: 7px;
+	border: 1px solid var(--color-border-button);
+	background-color: var(--color-bg-button);
+	transition: 180ms;
+	min-height: 38px;
+}
+
+.select-wrapper:focus-within {
+	border-color: var(--color-accent-blue);
+	box-shadow: 0 0 0 3px var(--color-overlay);
+}
+
+.select-wrapper.has-error {
+	border-color: var(--color-accent-red);
+}
+
+.select-wrapper.has-error:focus-within {
+	box-shadow: 0 0 0 3px rgba(212, 65, 65, 0.2);
+}
+
+.select-wrapper.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.select-element {
+	flex: 1;
+	appearance: none;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-family: NunitoSans;
+	font-size: 15px;
+	color: var(--color-text-primary);
+	padding: 8px 32px 8px 10px;
+	cursor: pointer;
+	min-width: 0;
+}
+
+.select-element:disabled {
+	cursor: not-allowed;
+}
+
+.select-element option {
+	background-color: var(--color-bg-secondary);
+	color: var(--color-text-primary);
+}
+
+.select-arrow {
+	position: absolute;
+	right: 10px;
+	font-size: 12px;
+	color: var(--color-text-tertiary);
+	pointer-events: none;
+}
+
+.select-error {
+	font-family: NunitoSans;
+	font-size: 13px;
+	color: var(--color-accent-red);
+}

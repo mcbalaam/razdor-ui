@@ -1,0 +1,62 @@
+.toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	user-select: none;
+	padding: 4px 0;
+}
+
+.toggle.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.toggle-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.toggle-track {
+	position: relative;
+	width: 40px;
+	height: 22px;
+	border-radius: 11px;
+	background-color: var(--color-accent-gray);
+	border: 1px solid var(--color-border-primary);
+	transition: 200ms;
+	flex-shrink: 0;
+}
+
+.toggle.checked .toggle-track {
+	background-color: var(--color-accent-blue);
+	border-color: var(--color-accent-blue);
+}
+
+.toggle-thumb {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background-color: var(--color-text-primary);
+	transition: 200ms;
+}
+
+.toggle.checked .toggle-thumb {
+	transform: translateX(18px);
+}
+
+.toggle-input:focus-visible ~ .toggle-track {
+	box-shadow: 0 0 0 3px var(--color-overlay);
+}
+
+.toggle-label {
+	font-family: NunitoSans;
+	font-size: 15px;
+	color: var(--color-text-primary);
+}
