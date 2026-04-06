@@ -29,7 +29,7 @@
 .tooltip-text {
     visibility: hidden;
     position: absolute;
-    top: -30px; /* над блоком */
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--color-bg-secondary);
@@ -48,5 +48,5 @@
 .tooltip-wrapper:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
-    top: -35px; /* небольшое смещение вверх при показе */
+    top: -35px;
 }

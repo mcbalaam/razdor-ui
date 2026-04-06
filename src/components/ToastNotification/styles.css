@@ -89,10 +89,9 @@
 .toast-close-button svg {
 	height: 14px;
 	width: 14px;
-	margin-left: 3px;
+	margin-left: -1px;
 }
 
-/* Типы тостов */
 .toast-info {
 	background-color: var(--color-info);
 	border-color: var(--color-info-border);
@@ -113,7 +112,6 @@
 	border-color: var(--color-accent-red-hover);
 }
 
-/* Анимации */
 @keyframes toastSlideIn {
 	from {
 		opacity: 0;
