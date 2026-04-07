@@ -52,9 +52,9 @@ export const AsLink: Story = {
 	},
 };
 
-export const NoImage: Story = {
+export const ImageOnly: Story = {
 	args: {
-		children: "Text only",
+		src: "https://placehold.co/20x20/png",
 	},
 };
 
