@@ -16,7 +16,7 @@ export default function Badge({
   const content = (
     <>
       {src && (<img className={`badge-img ${small ? " small" : ""}`} src={src} />)}
-      <p className={`badge-text ${small ? " small" : ""}`}>{children}</p>
+      {children && (<p className={`badge-text ${small ? " small" : ""}`}>{children}</p>)}
     </>
   );
 
