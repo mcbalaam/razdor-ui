@@ -1,15 +1,3 @@
-# razdor-ui
+# razdor-ui: custom Discord-like UI components
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.3.3. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+<img width="937" height="679" alt="image" src="https://github.com/user-attachments/assets/f918569f-469c-4d92-bded-e5de9155b7b7" />
