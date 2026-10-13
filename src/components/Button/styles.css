@@ -1,18 +1,19 @@
 .fancy-button {
-	padding: 7px 7px 7px 7px;
-	border-radius: 7px;
+	font-size: 0.9rem;
+	padding: 0.4375em;
+	border-radius: 0.4375em;
 	background-color: var(--color-bg-button);
-	border: 1px solid var(--color-border-button);
 	transition: 250ms;
 	cursor: pointer;
 	font-family: NunitoSans;
-	min-width: 38px !important;
-	min-height: 38px;
+	min-width: 2.375em !important;
+	min-height: 2.375em;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	width: fit-content;
 	justify-content: center;
+	border: none;
 }
 
 .fancy-button:focus-visible {
@@ -20,12 +21,11 @@
 }
 
 .fancy-button-text {
-	height: 20px;
+	height: max-content;
+	line-height: 1.5625em !important;
 	position: relative;
-	margin-left: 8px;
-	margin-right: 8px;
-	color: var(--color-text-primary);
-	line-height: 20px;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
 	width: fit-content;
 }
 
@@ -40,18 +40,18 @@
 
 .fancy-button.secondary,
 .fancy-button.contrast {
-	background-color: var(--color-bg-button-blue);
-	border: 1px solid var(--color-border-button-blue);
+	background-color: var(--color-accent);
+	border-color: color-mix(in oklch, var(--color-accent) 70%, var(--mix-hover));
 }
 
 .fancy-button.secondary:hover,
 .fancy-button.contrast:hover {
-	background-color: var(--color-bg-button-blue-hover);
+	background-color: var(--color-accent-hover);
 }
 
 .fancy-button.good {
 	background-color: var(--color-accent-green);
-	border: 1px solid var(--color-accent-green);
+	border-color: color-mix(in oklch, var(--color-accent-green) 70%, var(--mix-hover));
 	color: var(--color-text-primary);
 }
 
@@ -59,12 +59,11 @@
 	background-color: var(
 		--color-accent-green-hover
 	);
-	border-color: var(--color-accent-green-hover);
 }
 
 .fancy-button.bad {
 	background-color: var(--color-accent-red);
-	border: 1px solid var(--color-accent-red);
+	border-color: color-mix(in oklch, var(--color-accent-red) 70%, var(--mix-hover));
 	color: var(--color-text-primary);
 }
 
@@ -72,23 +71,20 @@
 	background-color: var(
 		--color-accent-red-hover
 	);
-	border-color: var(--color-accent-red-hover);
 }
 
 .fancy-button.danger {
 	background-color: var(--color-accent-orange);
-	border: 1px solid var(--color-accent-orange);
+	border-color: color-mix(in oklch, var(--color-accent-orange) 70%, var(--mix-hover));
 	color: var(--color-text-primary);
 }
 
 .fancy-button.danger:hover {
 	background-color: var(--color-accent-orange-light);
-	border: 1px solid var(--color-accent-orange-light);
 }
 
 .fancy-button.transparent {
 	background-color: var(--color-bg-transparent);
-	border: 1px solid var(--color-border-transparent);
 }
 
 .fancy-button.transparent:hover {
@@ -103,36 +99,33 @@
 .fancy-button.danger:disabled {
 	color: var(--color-text-disabled);
 	background-color: var(--color-bg-button-disabled);
-	border-color: var(
-		--color-bg-button-disabled-border
-	);
 	cursor: not-allowed;
 	transform: none;
 }
 
 .button-img {
-	height: 20px;
-	width: 20px;
+	height: 1.25em;
+	width: 1.25em;
 	position: relative;
 	object-fit: contain;
 }
 
 .button-img.icon {
-	height: 14px;
-	width: 14px;
-	padding: 4px 2px;
+	height: 0.875em;
+	width: 0.875em;
+	padding: 0.25em 0.125em;
 	color: var(--color-text-primary);
 }
 
 .fancy-button.tiny {
-	min-width: 28px !important;
-	min-height: 28px !important;
+	min-width: 1.75rem !important;
+	min-height: 1.75rem !important;
 	width: fit-content !important;
-	height: 28px !important;
+	height: 1.75rem !important;
 
 	padding: 0 !important;
-	border-radius: 6px !important;
-	font-size: 12px;
+	border-radius: 0.375rem !important;
+	font-size: 0.75rem;
 
 	display: flex;
 	align-items: center;
@@ -140,8 +133,8 @@
 }
 
 .fancy-button.tiny .button-img.icon {
-	height: 12px !important;
-	width: 12px !important;
+	height: 0.75rem !important;
+	width: 0.75rem !important;
 	padding: 0;
 	margin: 0;
 	color: var(--color-text-primary);

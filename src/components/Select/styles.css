@@ -1,12 +1,13 @@
 .select-field {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.375em;
+	font-size: 1rem;
 }
 
 .select-label {
 	font-family: NunitoSans;
-	font-size: 14px;
+	font-size: 0.875em;
 	color: var(--color-text-primary);
 	font-weight: 600;
 }
@@ -15,15 +16,15 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	border-radius: 7px;
+	border-radius: 0.4375em;
 	border: 1px solid var(--color-border-button);
 	background-color: var(--color-bg-button);
 	transition: 180ms;
-	min-height: 38px;
+	min-height: 2.375em;
 }
 
 .select-wrapper:focus-within {
-	border-color: var(--color-accent-blue);
+	border-color: var(--color-accent);
 	box-shadow: 0 0 0 3px var(--color-overlay);
 }
 
@@ -47,9 +48,9 @@
 	border: none;
 	outline: none;
 	font-family: NunitoSans;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: var(--color-text-primary);
-	padding: 8px 32px 8px 10px;
+	padding: 0.5em 2em 0.5em 0.625em;
 	cursor: pointer;
 	min-width: 0;
 }
@@ -65,14 +66,14 @@
 
 .select-arrow {
 	position: absolute;
-	right: 10px;
-	font-size: 12px;
+	right: 0.625em;
+	font-size: 0.75em;
 	color: var(--color-text-tertiary);
 	pointer-events: none;
 }
 
 .select-error {
 	font-family: NunitoSans;
-	font-size: 13px;
+	font-size: 0.8125em;
 	color: var(--color-accent-red);
 }

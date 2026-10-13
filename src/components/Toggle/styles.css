@@ -1,10 +1,11 @@
 .toggle {
 	display: inline-flex;
 	align-items: center;
-	gap: 10px;
+	gap: 0.625em;
 	cursor: pointer;
 	user-select: none;
-	padding: 4px 0;
+	padding: 0.25em 0;
+	font-size: 1rem;
 }
 
 .toggle.disabled {
@@ -22,9 +23,9 @@
 
 .toggle-track {
 	position: relative;
-	width: 40px;
-	height: 22px;
-	border-radius: 11px;
+	width: 2.5em;
+	height: 1.375em;
+	border-radius: 0.6875em;
 	background-color: var(--color-accent-gray);
 	border: 1px solid var(--color-border-primary);
 	transition: 200ms;
@@ -32,23 +33,23 @@
 }
 
 .toggle.checked .toggle-track {
-	background-color: var(--color-accent-blue);
-	border-color: var(--color-accent-blue);
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
 }
 
 .toggle-thumb {
 	position: absolute;
-	top: 3px;
-	left: 3px;
-	width: 16px;
-	height: 16px;
+	top: 0.1875em;
+	left: 0.1875em;
+	width: 1em;
+	height: 1em;
 	border-radius: 50%;
 	background-color: var(--color-text-primary);
 	transition: 200ms;
 }
 
 .toggle.checked .toggle-thumb {
-	transform: translateX(18px);
+	transform: translateX(1.125em);
 }
 
 .toggle-input:focus-visible ~ .toggle-track {
@@ -57,6 +58,6 @@
 
 .toggle-label {
 	font-family: NunitoSans;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: var(--color-text-primary);
 }

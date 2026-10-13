@@ -1,16 +1,17 @@
 .checkbox-group {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.375em;
+	font-size: 1rem;
 }
 
 .checkbox-item {
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 10px;
-	padding: 8px 10px;
-	border-radius: 8px;
+	gap: 0.625em;
+	padding: 0.5em 0.625em;
+	border-radius: 0.5em;
 	background: transparent;
 	border: 1px solid transparent;
 	cursor: pointer;
@@ -38,9 +39,9 @@
 }
 
 .checkbox-item-box {
-	width: 16px;
-	height: 16px;
-	border-radius: 4px;
+	width: 1em;
+	height: 1em;
+	border-radius: 0.25em;
 	border: 1px solid var(--color-border-primary);
 	background-color: transparent;
 	position: relative;
@@ -49,17 +50,17 @@
 }
 
 .checkbox-item-input:checked + .checkbox-item-box {
-	background-color: var(--color-accent-blue);
-	border-color: var(--color-accent-blue);
+	background-color: var(--color-accent);
+	border-color: var(--color-accent);
 }
 
 .checkbox-item-input:checked + .checkbox-item-box::after {
 	content: "";
 	position: absolute;
-	top: 1px;
-	left: 5px;
-	width: 4px;
-	height: 9px;
+	top: 0.0625em;
+	left: 0.3125em;
+	width: 0.25em;
+	height: 0.5625em;
 	border-right: 2px solid rgba(255, 255, 255, 0.95);
 	border-bottom: 2px solid rgba(255, 255, 255, 0.95);
 	transform: rotate(45deg);
@@ -70,7 +71,6 @@
 }
 
 .checkbox-item-label {
-	font-size: 15px;
+	font-size: 0.9375em;
 	line-height: 1.2;
 }
-

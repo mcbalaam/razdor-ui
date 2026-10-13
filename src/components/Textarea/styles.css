@@ -1,27 +1,28 @@
 .textarea-field {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.375em;
+	font-size: 1rem;
 }
 
 .textarea-label {
 	font-family: NunitoSans;
-	font-size: 14px;
+	font-size: 0.875em;
 	color: var(--color-text-primary);
 	font-weight: 600;
 }
 
 .textarea-element {
-	padding: 8px 10px;
-	border-radius: 7px;
+	padding: 0.5em 0.625em;
+	border-radius: 0.4375em;
 	border: 1px solid var(--color-border-button);
 	background-color: var(--color-bg-button);
 	font-family: NunitoSans;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: var(--color-text-primary);
 	outline: none;
 	transition: 180ms;
-	min-height: 80px;
+	min-height: 5em;
 }
 
 .textarea-element::placeholder {
@@ -29,7 +30,7 @@
 }
 
 .textarea-element:focus {
-	border-color: var(--color-accent-blue);
+	border-color: var(--color-accent);
 	box-shadow: 0 0 0 3px var(--color-overlay);
 }
 
@@ -49,6 +50,6 @@
 
 .textarea-error {
 	font-family: NunitoSans;
-	font-size: 13px;
+	font-size: 0.8125em;
 	color: var(--color-accent-red);
 }

@@ -1,14 +1,15 @@
 .menu-picker {
 	position: relative;
 	display: inline-block;
-	min-width: 220px;
+	min-width: 13.75em;
 	font-family: NunitoSans;
+	font-size: 1rem;
 }
 
 .menu-picker-toggle {
 	width: 100%;
-	padding: 7px 10px;
-	border-radius: 7px;
+	padding: 0.4375em 0.625em;
+	border-radius: 0.4375em;
 	background-color: var(--color-bg-button);
 	border: 1px solid var(--color-border-button);
 	color: var(--color-text-primary);
@@ -17,8 +18,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 10px;
-	min-height: 38px;
+	gap: 0.625em;
+	min-height: 2.375em;
 }
 
 .menu-picker-toggle:focus-visible {
@@ -45,30 +46,31 @@
 }
 
 .menu-picker-chevron {
-	width: 8px;
-	height: 8px;
+	width: 0.5em;
+	height: 0.5em;
 	border-right: 2px solid var(--color-text-tertiary);
 	border-bottom: 2px solid var(--color-text-tertiary);
 	transform: rotate(45deg);
 	transition: transform 180ms ease-in-out;
 	flex-shrink: 0;
-	margin-right: 2px;
+	margin-right: 0.125em;
 }
 
 .menu-picker-chevron.open {
 	transform: rotate(-135deg);
+	border-color: var(--color-accent-tertiary);
 }
 
 .menu-picker-popover {
 	position: absolute;
-	top: calc(100% + 6px);
+	top: calc(100% + 0.375em);
 	left: 0;
 	right: 0;
 	background-color: var(--color-bg-secondary);
-	border-radius: 10px;
+	border-radius: 0.625em;
 	border: 1px solid var(--color-border-primary);
-	box-shadow: 0px 0px 23px 5px var(--color-shadow);
-	padding: 6px;
+	box-shadow: var(--shadow-soft);
+	padding: 0.375em;
 	z-index: 1000;
 }
 
@@ -76,8 +78,8 @@
 	width: 100%;
 	border: none;
 	background: transparent;
-	padding: 8px 10px;
-	border-radius: 8px;
+	padding: 0.5em 0.625em;
+	border-radius: 0.5em;
 	color: var(--color-text-primary);
 	font-family: NunitoSans;
 	text-align: left;
@@ -90,8 +92,8 @@
 }
 
 .menu-picker-option-button.selected {
-	background-color: var(--color-bg-button-blue);
-	border: 1px solid var(--color-border-button-blue);
+	background-color: var(--color-accent);
+	border: 1px solid var(--color-accent-secondary);
 }
 
 .menu-picker-option-button.disabled {
@@ -100,14 +102,13 @@
 }
 
 .menu-picker-option {
-	border-radius: 8px;
+	border-radius: 0.5em;
 }
 
 .menu-picker-option.selected {
-	background-color: rgba(88, 101, 242, 0.14);
+	background-color: color-mix(in oklch, var(--color-accent) 16%, transparent);
 }
 
 .menu-picker-option.disabled {
 	opacity: 0.65;
 }
-

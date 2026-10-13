@@ -1,9 +1,12 @@
 .badge {
     display: inline-flex;
-    padding: 4px 4px 4px 4px;
-    border-radius: 7px;
+    align-items: center;
+    font-size: 1rem;
+    padding: 0.25em;
+    border-radius: 0.4375em;
     background-color: var(--color-bg-button);
     border: 1px solid var(--color-border-button);
+    border-color: color-mix(in oklch, var(--color-bg-button) 88%, var(--mix-hover));
     transition: 250ms;
     cursor: pointer;
     color: var(--color-text-primary);
@@ -11,44 +14,43 @@
 }
 
 .badge-text {
-    font-size: 14px;
+    font-size: 0.875em;
     margin-block-end: 0;
     margin-block-start: 0;
-    line-height: 20px;
-    margin-left: 6px;
-    margin-right: 2px;
-    max-height: 20px;
+    line-height: 1.25;
+    margin-left: 0.375em;
+    margin-right: 0.125em;
+    position: relative;
+    top: 0.1em;
 }
 
 .badge-img {
-    height: 20px;
-    width: 20px;
-    border-radius: 3px;
+    height: 1.25em;
+    width: 1.25em;
+    border-radius: 0.1875em;
 }
 
 .badge:hover {
     background-color: var(--color-bg-button-hover);
-    border-color: var(--color-bg-button-hover);
 }
 
 .badge.small {
-    padding: 2px 0px 2px 2px;
-    height: 15px;
-    margin-top: 11px;
-    margin-left: 6px;
+    padding: 0.125em 0 0.125em 0.125em;
+    height: 0.9375em;
+    margin-top: 0.6875em;
+    margin-left: 0.375em;
 }
 
 .badge-img.small {
-    height: 15px;
-    width: 15px;
-    border-radius: 3px;
+    height: 0.9375em;
+    width: 0.9375em;
+    border-radius: 0.1875em;
 }
 
 .badge-text.small {
-    font-size: 12px;
-    line-height: 10px;
+    font-size: 0.75em;
+    line-height: 1.25;
     margin-block-end: 0;
-    margin-top: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 0.3125em;
+    margin-right: 0.3125em;
 }

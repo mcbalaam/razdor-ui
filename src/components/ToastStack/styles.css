@@ -15,8 +15,8 @@
 	pointer-events: none;
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
-	padding: 20px;
+	padding: 1.25rem;
+	margin: -0.1875rem 0;
 }
 
 .toast-position-group.toast-top-right,
@@ -46,18 +46,30 @@
 }
 
 .toast-wrapper {
-	display: block;
+	display: grid;
+	grid-template-rows: 1fr;
+	margin: 0.1875rem 0;
 	opacity: 1;
-	overflow: hidden;
-	max-height: 600px;
-	transition: max-height 0.28s ease-in, opacity 0.28s ease-in;
+	transition:
+		grid-template-rows 0.2s ease-in,
+		opacity 0.2s ease-in,
+		margin 0.2s ease-in;
 	position: relative;
 	z-index: auto;
 }
 
+.toast-wrapper > div {
+	min-height: 0;
+}
+
 .toast-wrapper.removing {
-	max-height: 0px;
+	grid-template-rows: 0fr;
+	margin: 0;
 	opacity: 0;
+}
+
+.toast-wrapper.removing > div {
+	overflow: hidden;
 }
 
 .toast-wrapper.top .toast-notification {

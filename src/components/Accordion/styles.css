@@ -1,13 +1,14 @@
 .accordion {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.375em;
+	font-size: 1rem;
 }
 
 .accordion-item {
 	background-color: var(--color-bg-secondary);
 	border: 1px solid var(--color-border-primary);
-	border-radius: 10px;
+	border-radius: 0.625em;
 	overflow: hidden;
 }
 
@@ -20,8 +21,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 12px;
-	padding: 10px 12px;
+	gap: 0.75em;
+	padding: 0.625em 0.75em;
 	border: none;
 	background: transparent;
 	color: var(--color-text-primary);
@@ -39,24 +40,25 @@
 }
 
 .accordion-title {
-	font-size: 15px;
+	font-size: 0.9375em;
 	line-height: 1.2;
 	font-weight: 700;
 }
 
 .accordion-chevron {
-	width: 8px;
-	height: 8px;
+	width: 0.5em;
+	height: 0.5em;
 	border-right: 2px solid var(--color-text-tertiary);
 	border-bottom: 2px solid var(--color-text-tertiary);
 	transform: rotate(45deg);
 	transition: transform 180ms ease-in-out;
 	flex-shrink: 0;
-	margin-right: 2px;
+	margin-right: 0.125em;
 }
 
 .accordion-chevron.open {
 	transform: rotate(-135deg);
+	border-color: var(--color-accent-tertiary);
 }
 
 .accordion-panel {
@@ -71,11 +73,10 @@
 
 .accordion-panel-inner {
 	overflow: hidden;
-	padding: 0 12px;
+	padding: 0 0.75em;
 	transition: padding-bottom 200ms ease;
 }
 
 .accordion-panel.open .accordion-panel-inner {
-	padding-bottom: 12px;
+	padding-bottom: 0.75em;
 }
-

@@ -1,7 +1,8 @@
 .radio-group {
 	display: flex;
-	gap: 6px;
+	gap: 0.375em;
 	flex-wrap: wrap;
+	font-size: 1rem;
 }
 
 .radio-group.vertical {
@@ -16,9 +17,9 @@
 	position: relative;
 	display: flex;
 	align-items: center;
-	gap: 10px;
-	padding: 8px 10px;
-	border-radius: 8px;
+	gap: 0.625em;
+	padding: 0.5em 0.625em;
+	border-radius: 0.5em;
 	background: transparent;
 	border: 1px solid transparent;
 	cursor: pointer;
@@ -46,8 +47,8 @@
 }
 
 .radio-item-box {
-	width: 16px;
-	height: 16px;
+	width: 1em;
+	height: 1em;
 	border-radius: 50%;
 	border: 1px solid var(--color-border-primary);
 	background-color: transparent;
@@ -57,18 +58,18 @@
 }
 
 .radio-item-input:checked + .radio-item-box {
-	border-color: var(--color-accent-blue);
+	border-color: var(--color-accent);
 }
 
 .radio-item-input:checked + .radio-item-box::after {
 	content: "";
 	position: absolute;
-	top: 4px;
-	left: 4px;
-	width: 8px;
-	height: 8px;
+	top: 0.25em;
+	left: 0.25em;
+	width: 0.5em;
+	height: 0.5em;
 	border-radius: 50%;
-	background-color: var(--color-accent-blue);
+	background-color: var(--color-accent);
 }
 
 .radio-item-input:focus-visible + .radio-item-box {
@@ -76,7 +77,6 @@
 }
 
 .radio-item-label {
-	font-size: 15px;
+	font-size: 0.9375em;
 	line-height: 1.2;
 }
-

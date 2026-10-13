@@ -1,12 +1,13 @@
 .input-field {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 0.375em;
+	font-size: 1rem;
 }
 
 .input-label {
 	font-family: NunitoSans;
-	font-size: 14px;
+	font-size: 0.875em;
 	color: var(--color-text-primary);
 	font-weight: 600;
 }
@@ -14,17 +15,17 @@
 .input-wrapper {
 	display: flex;
 	align-items: center;
-	gap: 8px;
-	padding: 0 10px;
-	border-radius: 7px;
+	gap: 0.5em;
+	padding: 0 0.625em;
+	border-radius: 0.4375em;
 	border: 1px solid var(--color-border-button);
 	background-color: var(--color-bg-button);
 	transition: 180ms;
-	min-height: 38px;
+	min-height: 2.375em;
 }
 
 .input-wrapper:focus-within {
-	border-color: var(--color-accent-blue);
+	border-color: var(--color-accent);
 	box-shadow: 0 0 0 3px var(--color-overlay);
 }
 
@@ -42,8 +43,8 @@
 }
 
 .input-icon {
-	width: 14px;
-	height: 14px;
+	width: 0.875em;
+	height: 0.875em;
 	color: var(--color-text-tertiary);
 	flex-shrink: 0;
 }
@@ -54,9 +55,9 @@
 	border: none;
 	outline: none;
 	font-family: NunitoSans;
-	font-size: 15px;
+	font-size: 0.9375em;
 	color: var(--color-text-primary);
-	padding: 8px 0;
+	padding: 0.5em 0;
 	min-width: 0;
 }
 
@@ -70,6 +71,6 @@
 
 .input-error {
 	font-family: NunitoSans;
-	font-size: 13px;
+	font-size: 0.8125em;
 	color: var(--color-accent-red);
 }

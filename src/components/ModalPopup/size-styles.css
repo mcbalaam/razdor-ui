@@ -1,18 +1,18 @@
 .modal-popup.small {
-    max-width: 300px;
+    max-width: 18.75rem;
 }
 
 .modal-popup.medium {
-    max-width: 500px;
+    max-width: 31.25rem;
 }
 
 .modal-popup.large {
-    max-width: 800px;
+    max-width: 50rem;
 }
 
 .modal-popup.fullscreen {
-    max-width: calc(100vw - 40px);
-    max-height: calc(100vh - 40px);
-    width: calc(100vw - 40px);
-    height: calc(100vh - 40px);
+    max-width: calc(100vw - 2.5rem);
+    max-height: calc(100vh - 2.5rem);
+    width: calc(100vw - 2.5rem);
+    height: calc(100vh - 2.5rem);
 }
