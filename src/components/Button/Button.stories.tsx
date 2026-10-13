@@ -1,14 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-	faHome,
-	faCheck,
-	faTrash,
-	faUser,
-	faMoon,
-	faCog,
-	faSuperscript,
-	faWindowRestore,
-} from "@fortawesome/free-solid-svg-icons";
+import { House, Check, Trash, Moon, Settings } from "lucide-react";
 import Button from ".";
 import "./styles.css";
 import "../../index.css";
@@ -24,7 +15,7 @@ const meta = {
 		fill: { control: "boolean" },
 		disabled: { control: "boolean" },
 		onClick: { action: "clicked" },
-		faIcon: { control: false },
+		icon: { control: false },
 	},
 } satisfies Meta<typeof Button>;
 
@@ -47,13 +38,13 @@ export const Contrast: Story = {
 export const WithIcon: Story = {
 	args: {
 		children: "Icon Button",
-		faIcon: faHome,
+		icon: House,
 	},
 };
 
 export const IconOnly: Story = {
 	args: {
-		faIcon: faTrash,
+		icon: Trash,
 		fill: true,
 	},
 };
@@ -96,7 +87,7 @@ export const Transparent: Story = {
 
 export const Tiny: Story = {
 	args: {
-		faIcon: faMoon,
+		icon: Moon,
 		tiny: true,
 	},
 };
@@ -132,7 +123,7 @@ export const ButtonGroup: Story = {
 			<div style={{ display: "flex", gap: "10px" }}>
 				<Button color="primary">Action</Button>
 				<Button color="transparent">Action</Button>
-				<Button color="secondary" fill>
+				<Button color="secondary">
 					Submit
 				</Button>
 			</div>
@@ -144,14 +135,24 @@ export const ButtonGroup: Story = {
 			</div>
 
 			<div style={{ display: "flex", gap: "10px" }}>
-				<Button tiny faIcon={faMoon} />
-				<Button tiny color="bad" faIcon={faTrash} />
-				<Button tiny color="danger" faIcon={faCog} />
-				<Button tiny color="good" faIcon={faCheck} />
-				<Button tiny color="secondary" fill faIcon={faCheck}>
+				<Button tiny icon={Moon} />
+				<Button tiny color="bad" icon={Trash} />
+				<Button tiny color="danger" icon={Settings} />
+				<Button tiny color="good" icon={Check} />
+				<Button tiny color="secondary" icon={Check}>
 					Tiny Text
 				</Button>
 			</div>
+		</div>
+	),
+};
+
+export const Fill: Story = {
+	render: () => (
+		<div style={{ width: 320 }}>
+			<Button color="secondary" fill icon={Check}>
+				Full-width fill button
+			</Button>
 		</div>
 	),
 };

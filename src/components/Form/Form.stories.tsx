@@ -7,9 +7,7 @@ import Select from "../Select";
 import Toggle from "../Toggle";
 import CheckboxGroup from "../CheckboxGroup";
 import Button from "../Button";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
-import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
-import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { Mail, Lock, User } from "lucide-react";
 
 const meta = {
 	title: "COMPONENTS/Form",
@@ -29,8 +27,8 @@ export const Login: Story = {
 		return (
 			<div style={{ width: 320 }}>
 				<Form onSubmit={() => alert("Submitted!")}>
-					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="you@example.com" faIcon={faEnvelope} />
-					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" faIcon={faLock} />
+					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="you@example.com" icon={Mail} />
+					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" icon={Lock} />
 					<Toggle checked={remember} onChange={setRemember} label="Remember me" />
 					<Button color="secondary" fill type="submit">Sign in</Button>
 				</Form>
@@ -52,9 +50,9 @@ export const Registration: Story = {
 		return (
 			<div style={{ width: 360 }}>
 				<Form onSubmit={() => alert("Registered!")}>
-					<Input label="Full name" value={name} onChange={setName} placeholder="Jane Doe" faIcon={faUser} />
-					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="jane@example.com" faIcon={faEnvelope} />
-					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" faIcon={faLock} />
+					<Input label="Full name" value={name} onChange={setName} placeholder="Jane Doe" icon={User} />
+					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="jane@example.com" icon={Mail} />
+					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" icon={Lock} />
 					<Select
 						label="Country"
 						value={country}
@@ -97,8 +95,8 @@ export const WithValidation: Story = {
 		return (
 			<div style={{ width: 320 }}>
 				<Form onSubmit={() => setSubmitted(true)}>
-					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="you@example.com" faIcon={faEnvelope} error={emailError} />
-					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" faIcon={faLock} error={passwordError} />
+					<Input label="Email" type="email" value={email} onChange={setEmail} placeholder="you@example.com" icon={Mail} error={emailError} />
+					<Input label="Password" type="password" value={password} onChange={setPassword} placeholder="••••••••" icon={Lock} error={passwordError} />
 					<Button color="secondary" fill type="submit">Submit</Button>
 				</Form>
 			</div>

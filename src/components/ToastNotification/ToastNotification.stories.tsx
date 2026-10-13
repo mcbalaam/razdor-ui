@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-	faCheckCircle,
-	faExclamationTriangle,
-	faInfoCircle,
-	faXmarkCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { CircleCheck, TriangleAlert, Info as InfoIcon, CircleX } from "lucide-react";
 import ToastNotification from ".";
 import "./styles.css";
 import "../../index.css";
@@ -58,7 +53,7 @@ type Story = StoryObj<typeof ToastNotification>;
 export const Info: Story = {
 	args: {
 		type: "info",
-		icon: faInfoCircle,
+		icon: InfoIcon,
 		children: "This is an info message",
 	},
 };
@@ -66,7 +61,7 @@ export const Info: Story = {
 export const Success: Story = {
 	args: {
 		type: "success",
-		icon: faCheckCircle,
+		icon: CircleCheck,
 		children: "Your profile has been updated successfully!",
 	},
 };
@@ -74,7 +69,7 @@ export const Success: Story = {
 export const Warning: Story = {
 	args: {
 		type: "warning",
-		icon: faExclamationTriangle,
+		icon: TriangleAlert,
 		children: "Your session will expire in 5 minutes",
 	},
 };
@@ -82,7 +77,7 @@ export const Warning: Story = {
 export const Error: Story = {
 	args: {
 		type: "error",
-		icon: faXmarkCircle,
+		icon: CircleX,
 		children: "Failed to save changes. Please try again.",
 	},
 };
@@ -105,7 +100,7 @@ export const WithoutIcon: Story = {
 export const WithoutCloseButton: Story = {
 	args: {
 		type: "info",
-		icon: faInfoCircle,
+		icon: InfoIcon,
 		showCloseButton: false,
 		children: "This toast doesn't have a close button",
 	},
@@ -114,7 +109,7 @@ export const WithoutCloseButton: Story = {
 export const LongMessage: Story = {
 	args: {
 		type: "warning",
-		icon: faExclamationTriangle,
+		icon: TriangleAlert,
 		children:
 			"This is a longer message that demonstrates how the toast handles multi-line content. It should wrap properly and maintain good readability.",
 	},
@@ -124,7 +119,7 @@ export const VencordDemo: Story = {
 	render: () => (
 		<ToastNotification
 			type="info"
-			icon={faInfoCircle}
+			icon={InfoIcon}
 			position="bottom-right"
 			duration={30000000}
 		>
@@ -141,7 +136,7 @@ export const VencordDemoKeyboard: Story = {
 	render: () => (
 		<ToastNotification
 			type="info"
-			icon={faInfoCircle}
+			icon={InfoIcon}
 			position="bottom-right"
 			duration={30000000}
 			nowrap
@@ -166,7 +161,7 @@ export const AllPositions: Story = {
 		<>
 			<ToastNotification
 				type="info"
-				icon={faInfoCircle}
+				icon={InfoIcon}
 				position="top-left"
 				duration={0}
 			>
@@ -174,7 +169,7 @@ export const AllPositions: Story = {
 			</ToastNotification>
 			<ToastNotification
 				type="success"
-				icon={faCheckCircle}
+				icon={CircleCheck}
 				position="top-center"
 				duration={0}
 			>
@@ -182,7 +177,7 @@ export const AllPositions: Story = {
 			</ToastNotification>
 			<ToastNotification
 				type="warning"
-				icon={faExclamationTriangle}
+				icon={TriangleAlert}
 				position="top-right"
 				duration={0}
 			>
@@ -190,7 +185,7 @@ export const AllPositions: Story = {
 			</ToastNotification>
 			<ToastNotification
 				type="error"
-				icon={faXmarkCircle}
+				icon={CircleX}
 				position="bottom-left"
 				duration={0}
 			>
@@ -198,7 +193,7 @@ export const AllPositions: Story = {
 			</ToastNotification>
 			<ToastNotification
 				type="info"
-				icon={faInfoCircle}
+				icon={InfoIcon}
 				position="bottom-center"
 				duration={0}
 			>
@@ -206,7 +201,7 @@ export const AllPositions: Story = {
 			</ToastNotification>
 			<ToastNotification
 				type="success"
-				icon={faCheckCircle}
+				icon={CircleCheck}
 				position="bottom-right"
 				duration={0}
 			>
@@ -219,7 +214,7 @@ export const AllPositions: Story = {
 export const AutoClose: Story = {
 	args: {
 		type: "success",
-		icon: faCheckCircle,
+		icon: CircleCheck,
 		duration: 3000,
 		children: "This toast will auto-close in 3 seconds",
 	},

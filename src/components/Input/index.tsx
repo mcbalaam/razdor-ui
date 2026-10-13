@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconType } from "../../icons";
 import "./styles.css";
 
 export type InputProps = {
@@ -11,7 +10,7 @@ export type InputProps = {
 	disabled?: boolean;
 	error?: string;
 	type?: "text" | "password" | "email" | "number" | "tel" | "url" | "search";
-	faIcon?: IconDefinition;
+	icon?: IconType;
 	className?: string;
 	style?: CSSProperties;
 	id?: string;
@@ -25,7 +24,7 @@ export default function Input({
 	disabled,
 	error,
 	type = "text",
-	faIcon,
+	icon: Icon,
 	className,
 	style,
 	id,
@@ -37,9 +36,9 @@ export default function Input({
 					{label}
 				</label>
 			)}
-			<div className={`input-wrapper${faIcon ? " has-icon" : ""}${error ? " has-error" : ""}${disabled ? " disabled" : ""}`}>
-				{faIcon && (
-					<FontAwesomeIcon className="input-icon" icon={faIcon} />
+			<div className={`input-wrapper${Icon ? " has-icon" : ""}${error ? " has-error" : ""}${disabled ? " disabled" : ""}`}>
+				{Icon && (
+					<Icon className="input-icon" size={16} />
 				)}
 				<input
 					id={id}

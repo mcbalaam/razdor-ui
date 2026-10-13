@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { faCopy, faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Copy, Pencil, Trash } from "lucide-react";
 import { Box } from ".";
 import Button from "../Button";
 import { ButtonBlock } from "../ButtonBlock";
@@ -19,9 +19,9 @@ export const WithActions: Story = {
     <Box
       actions={
         <ButtonBlock>
-          <Button color="primary" faIcon={faCopy} tiny />
-          <Button color="primary" faIcon={faPencil} tiny />
-          <Button color="primary" faIcon={faTrash} tiny />
+          <Button color="primary" icon={Copy} tiny />
+          <Button color="primary" icon={Pencil} tiny />
+          <Button color="primary" icon={Trash} tiny />
         </ButtonBlock>
       }
     >
@@ -49,9 +49,9 @@ export const MultipleBoxes: Story = {
       <Box
         actions={
           <ButtonBlock>
-            <Button color="primary" faIcon={faCopy} tiny />
-            <Button color="primary" faIcon={faPencil} tiny />
-            <Button color="primary" faIcon={faTrash} tiny />
+            <Button color="primary" icon={Copy} tiny />
+            <Button color="primary" icon={Pencil} tiny />
+            <Button color="primary" icon={Trash} tiny />
           </ButtonBlock>
         }
       >
@@ -60,8 +60,8 @@ export const MultipleBoxes: Story = {
       <Box
         actions={
           <ButtonBlock>
-            <Button color="good" faIcon={faCopy} tiny />
-            <Button color="secondary" faIcon={faPencil} tiny />
+            <Button color="good" icon={Copy} tiny />
+            <Button color="secondary" icon={Pencil} tiny />
           </ButtonBlock>
         }
       >
@@ -79,9 +79,9 @@ export const WithLongContent: Story = {
     <Box
       actions={
         <ButtonBlock>
-          <Button color="primary" faIcon={faCopy} tiny />
-          <Button color="primary" faIcon={faPencil} tiny />
-          <Button color="danger" faIcon={faTrash} tiny />
+          <Button color="primary" icon={Copy} tiny />
+          <Button color="primary" icon={Pencil} tiny />
+          <Button color="danger" icon={Trash} tiny />
         </ButtonBlock>
       }
     >

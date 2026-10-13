@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ToastStack, { useCreateToast } from ".";
 import Button from "../Button";
-import {
-	faInfoCircle,
-	faCheckCircle,
-	faExclamationTriangle,
-	faXmarkCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import { Info, CircleCheck, TriangleAlert, CircleX } from "lucide-react";
 import "../../index.css";
 
 const meta: Meta<typeof ToastStack> = {
@@ -47,7 +42,7 @@ export const BasicUsage: Story = {
 							onClick={() =>
 								createInfoToast({
 									children: "This is an info message",
-									icon: faInfoCircle,
+									icon: Info,
 									duration: 3000,
 								})
 							}
@@ -60,7 +55,7 @@ export const BasicUsage: Story = {
 							onClick={() =>
 								createSuccessToast({
 									children: "Configuration reloaded!",
-									icon: faCheckCircle,
+									icon: CircleCheck,
 									duration: 3000,
 								})
 							}
@@ -74,7 +69,7 @@ export const BasicUsage: Story = {
 								createWarningToast({
 									children:
 										"1 duplicate property in the configuration: examine the log output",
-									icon: faExclamationTriangle,
+									icon: TriangleAlert,
 									duration: 5000,
 								})
 							}
@@ -88,7 +83,7 @@ export const BasicUsage: Story = {
 								createErrorToast({
 									children:
 										"Failed to fetch configuration: examine the log output",
-									icon: faXmarkCircle,
+									icon: CircleX,
 									duration: 0,
 								})
 							}
@@ -127,7 +122,7 @@ export const BasicUsage: Story = {
 								children: "This toast is at bottom-left",
 								type: "info",
 								position: "bottom-left",
-								icon: faInfoCircle,
+								icon: Info,
 								duration: 3000,
 							});
 						}}

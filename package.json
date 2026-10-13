@@ -12,23 +12,22 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target browser --format esm --external react --external react-dom --external @fortawesome/fontawesome-svg-core && bun run build:types",
+    "build": "bun run build:js && bun run build:types",
+    "build:js": "bun build ./src/index.ts --outdir ./dist --target browser --format esm --external react --external react-dom --external react/jsx-runtime --external react/jsx-dev-runtime --external lucide-react",
     "build:types": "tsc --project tsconfig.build.json",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.2.0"
+    "build-storybook": "storybook build",
+    "dev": "bun build ./src/index.ts --outdir ./dist --target browser --format esm --external react --external react-dom --external react/jsx-runtime --external react/jsx-dev-runtime --external lucide-react --watch",
+    "dev:types": "tsc --project tsconfig.build.json --watch"
   },
   "devDependencies": {
-    "@fortawesome/free-solid-svg-icons": "^7.1.0",
-    "@fortawesome/react-fontawesome": "^3.2.0",
     "@storybook/global": "^5.0.0",
     "@storybook/react": "^10.2.19",
     "@storybook/react-vite": "^10.2.19",
     "@types/bun": "latest",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "lucide-react": "^1.56.0",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "storybook": "^10.2.19",
@@ -36,6 +35,7 @@
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "lucide-react": "^0.400.0 || ^1.0.0"
   }
 }

@@ -8,8 +8,7 @@ import Input from "../Input";
 import Textarea from "../Textarea";
 import Select from "../Select";
 import Toggle from "../Toggle";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
-import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { Mail, User } from "lucide-react";
 
 const ModalTemplate = ({ control, children }: PropsWithChildren<{ control: ModalControl }>) => {
 	const [isOpen, setIsOpen] = useState(control.isOpen || false);
@@ -168,7 +167,7 @@ export const WithForm: Story = {
 							value={name}
 							onChange={setName}
 							placeholder="Jane Doe"
-							faIcon={faUser}
+							icon={User}
 							error={nameError}
 						/>
 						<Input
@@ -177,7 +176,7 @@ export const WithForm: Story = {
 							value={email}
 							onChange={setEmail}
 							placeholder="jane@example.com"
-							faIcon={faEnvelope}
+							icon={Mail}
 							error={emailError}
 						/>
 						<Select

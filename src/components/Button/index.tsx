@@ -1,6 +1,5 @@
 import type { PropsWithChildren, CSSProperties } from "react";
-import { faIcons } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { IconType } from "../../icons";
 import "./styles.css";
 
 export default function Button({
@@ -12,7 +11,7 @@ export default function Button({
   disabled,
   className,
   style,
-  faIcon,
+  icon: Icon,
   tiny,
   keyboard,
   type = "button",
@@ -25,7 +24,7 @@ export default function Button({
   keyboard?: boolean;
   className?: string;
   style?: CSSProperties;
-  faIcon?: typeof faIcons;
+  icon?: IconType;
   type?: "button" | "submit" | "reset";
   tiny?: boolean;
 }>) {
@@ -37,7 +36,7 @@ export default function Button({
       style={style}
       type={type}
     >
-      {faIcon && <FontAwesomeIcon className="button-img icon" icon={faIcon} />}
+      {Icon && <Icon className="button-img icon" size={20} />}
       {href && <img className="button-img" src={href} alt="img" />}
       {children && <span className="fancy-button-text">{children}</span>}
     </button>

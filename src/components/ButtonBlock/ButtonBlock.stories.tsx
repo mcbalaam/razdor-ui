@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { faTrash, faPencil, faCopy } from "@fortawesome/free-solid-svg-icons";
+import { Copy, Pencil, Trash } from "lucide-react";
 import Button from "../Button";
 import { ButtonBlock } from ".";
 
@@ -15,9 +15,9 @@ type Story = StoryObj<typeof ButtonBlock>;
 export const TinyIconButtons: Story = {
   render: () => (
     <ButtonBlock>
-      <Button color="primary" faIcon={faCopy} tiny />
-      <Button color="primary" faIcon={faPencil} tiny />
-      <Button color="primary" faIcon={faTrash} tiny />
+      <Button color="primary" icon={Copy} tiny />
+      <Button color="primary" icon={Pencil} tiny />
+      <Button color="primary" icon={Trash} tiny />
     </ButtonBlock>
   ),
 };
@@ -25,9 +25,9 @@ export const TinyIconButtons: Story = {
 export const WithDifferentColors: Story = {
   render: () => (
     <ButtonBlock>
-      <Button color="good" faIcon={faCopy} tiny />
-      <Button color="secondary" faIcon={faPencil} tiny />
-      <Button color="danger" faIcon={faTrash} tiny />
+      <Button color="good" icon={Copy} tiny />
+      <Button color="secondary" icon={Pencil} tiny />
+      <Button color="danger" icon={Trash} tiny />
     </ButtonBlock>
   ),
 };
@@ -35,13 +35,13 @@ export const WithDifferentColors: Story = {
 export const WithText: Story = {
   render: () => (
     <ButtonBlock>
-      <Button color="primary" faIcon={faCopy} tiny>
+      <Button color="primary" icon={Copy} tiny>
         Copy
       </Button>
-      <Button color="primary" faIcon={faPencil} tiny>
+      <Button color="primary" icon={Pencil} tiny>
         Edit
       </Button>
-      <Button color="primary" faIcon={faTrash} tiny>
+      <Button color="primary" icon={Trash} tiny>
         Delete
       </Button>
     </ButtonBlock>

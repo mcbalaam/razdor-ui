@@ -1,13 +1,12 @@
 import type { PropsWithChildren, CSSProperties } from "react";
 import { useState, useEffect, useRef } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { X } from "lucide-react";
+import type { IconType } from "../../icons";
 import Button from "../Button";
 import "./styles.css";
 
 export type ToastNotificationProps = PropsWithChildren<{
-	icon?: IconDefinition;
+	icon?: IconType;
 	iconUrl?: string;
 	type?: "info" | "success" | "warning" | "error";
 	duration?: number;
@@ -28,7 +27,7 @@ export type ToastNotificationProps = PropsWithChildren<{
 
 export default function ToastNotification({
 	children,
-	icon,
+	icon: Icon,
 	iconUrl,
 	type = "info",
 	duration = 5000,
@@ -52,9 +51,7 @@ export default function ToastNotification({
 			clearTimeout(timerRef.current);
 			timerRef.current = null;
 		}
-		setTimeout(() => {
-			onClose?.();
-		}, 200);
+		onClose?.();
 	};
 
 	useEffect(() => {
@@ -81,9 +78,9 @@ export default function ToastNotification({
 			style={style}
 		>
 			<div className="toast-content">
-				{(icon || iconUrl) && (
+				{(Icon || iconUrl) && (
 					<div className="toast-icon">
-						{icon && <FontAwesomeIcon className="toast-icon-svg" icon={icon} />}
+						{Icon && <Icon className="toast-icon-svg" size={20} />}
 						{iconUrl && <img className="toast-icon-img" src={iconUrl} alt="" />}
 					</div>
 				)}
@@ -95,7 +92,7 @@ export default function ToastNotification({
 				<Button
 					className="toast-close-button"
 					onClick={handleClose}
-					faIcon={faXmark}
+					icon={X}
 				/>
 			)}
 		</div>

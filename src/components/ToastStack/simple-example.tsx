@@ -1,6 +1,6 @@
 import ToastStack, { useCreateToast } from ".";
 import Button from "../Button";
-import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { Info } from "lucide-react";
 
 function App() {
 	return (
@@ -20,7 +20,7 @@ function DemoComponent() {
 				onClick={() =>
 					createInfoToast({
 						children: "Info message",
-						icon: faInfoCircle,
+						icon: Info,
 						duration: 3000,
 					})
 				}

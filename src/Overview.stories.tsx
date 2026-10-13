@@ -11,15 +11,15 @@ import Tooltip from "./components/Tooltip";
 import ToastStack, { useCreateToast } from "./components/ToastStack";
 import ModalPopup from "./components/ModalPopup";
 import {
-	faUser,
-	faBell,
-	faTrash,
-	faCog,
-	faCheck,
-	faCheckCircle,
-	faInfoCircle,
-	faXmarkCircle,
-} from "@fortawesome/free-solid-svg-icons";
+	User,
+	Bell,
+	Trash,
+	Settings,
+	Check,
+	CircleCheck,
+	Info,
+	CircleX,
+} from "lucide-react";
 import "./index.css";
 
 const Cell = ({
@@ -84,7 +84,7 @@ const OverviewInner = () => {
 				<Button color="contrast">Contrast</Button>
 				<Button color="good">Good</Button>
 				<Button color="bad">Bad</Button>
-				<Button color="secondary" faIcon={faCog} />
+				<Button color="secondary" icon={Settings} />
 			</Cell>
 
 			<Cell label="Badge">
@@ -95,13 +95,13 @@ const OverviewInner = () => {
 
 			<Cell label="Tooltip">
 				<Tooltip text=":trash:">
-					<Button tiny faIcon={faTrash} color="bad" />
+					<Button tiny icon={Trash} color="bad" />
 				</Tooltip>
 				<Tooltip text=":cog:">
-					<Button tiny faIcon={faCog} />
+					<Button tiny icon={Settings} />
 				</Tooltip>
 				<Tooltip text=":check:">
-					<Button tiny faIcon={faCheck} color="good" />
+					<Button tiny icon={Check} color="good" />
 				</Tooltip>
 			</Cell>
 
@@ -112,7 +112,7 @@ const OverviewInner = () => {
 						value={inputVal}
 						onChange={setInputVal}
 						placeholder="Jane Doe"
-						faIcon={faUser}
+						icon={User}
 					/>
 				</div>
 			</Cell>
@@ -152,31 +152,31 @@ const OverviewInner = () => {
 			<Cell label="Toast">
 				<Button
 					tiny
-					faIcon={faInfoCircle}
+					icon={Info}
 					onClick={() =>
-						createInfoToast({ children: "Info message", icon: faInfoCircle, duration: 3000 })
+						createInfoToast({ children: "Info message", icon: Info, duration: 3000 })
 					}
 				/>
 				<Button
 					tiny
 					color="good"
-					faIcon={faCheckCircle}
+					icon={CircleCheck}
 					onClick={() =>
-						createSuccessToast({ children: "Done!", icon: faCheckCircle, duration: 3000 })
+						createSuccessToast({ children: "Done!", icon: CircleCheck, duration: 3000 })
 					}
 				/>
 				<Button
 					tiny
 					color="bad"
-					faIcon={faXmarkCircle}
+					icon={CircleX}
 					onClick={() =>
-						createErrorToast({ children: "Something went wrong", icon: faXmarkCircle })
+						createErrorToast({ children: "Something went wrong", icon: CircleX })
 					}
 				/>
 			</Cell>
 
 			<Cell label="Modal">
-				<Button color="primary" faIcon={faBell} onClick={() => setModalOpen(true)}>
+				<Button color="primary" icon={Bell} onClick={() => setModalOpen(true)}>
 					Open
 				</Button>
 				<ModalPopup

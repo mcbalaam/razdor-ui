@@ -1,10 +1,8 @@
 import type { PropsWithChildren } from "react";
 import { useState, useEffect, useRef } from "react";
-import "./styles.css";
-import "../../index.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { X } from "lucide-react";
 import Button from "../Button";
-import { faXmark } from "@fortawesome/free-solid-svg-icons/faXmark";
+import "./styles.css";
 
 export type ModalControl = {
 	isOpen: boolean;
@@ -98,7 +96,7 @@ export default function ModalPopup({
 							<Button
 								className="modal-close-button"
 								onClick={handleClose}
-								faIcon={faXmark}
+								icon={X}
 							/>
 						)}
 					</div>

@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
+import { Search, Mail, Lock } from "lucide-react";
 import Input from ".";
-import { faSearch } from "@fortawesome/free-solid-svg-icons/faSearch";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
-import { faLock } from "@fortawesome/free-solid-svg-icons/faLock";
 
 const meta = {
 	title: "COMPONENTS/Input",
@@ -31,7 +29,7 @@ export const WithIcon: Story = {
 		const [value, setValue] = useState("");
 		return (
 			<div style={{ width: 300 }}>
-				<Input label="Search" value={value} onChange={setValue} placeholder="Search..." faIcon={faSearch} />
+				<Input label="Search" value={value} onChange={setValue} placeholder="Search..." icon={Search} />
 			</div>
 		);
 	},
@@ -42,7 +40,7 @@ export const Email: Story = {
 		const [value, setValue] = useState("");
 		return (
 			<div style={{ width: 300 }}>
-				<Input label="Email" type="email" value={value} onChange={setValue} placeholder="you@example.com" faIcon={faEnvelope} />
+				<Input label="Email" type="email" value={value} onChange={setValue} placeholder="you@example.com" icon={Mail} />
 			</div>
 		);
 	},
@@ -53,7 +51,7 @@ export const Password: Story = {
 		const [value, setValue] = useState("");
 		return (
 			<div style={{ width: 300 }}>
-				<Input label="Password" type="password" value={value} onChange={setValue} placeholder="••••••••" faIcon={faLock} />
+				<Input label="Password" type="password" value={value} onChange={setValue} placeholder="••••••••" icon={Lock} />
 			</div>
 		);
 	},
@@ -64,7 +62,7 @@ export const WithError: Story = {
 		const [value, setValue] = useState("wrong@");
 		return (
 			<div style={{ width: 300 }}>
-				<Input label="Email" type="email" value={value} onChange={setValue} error="Enter a valid email address" faIcon={faEnvelope} />
+				<Input label="Email" type="email" value={value} onChange={setValue} error="Enter a valid email address" icon={Mail} />
 			</div>
 		);
 	},

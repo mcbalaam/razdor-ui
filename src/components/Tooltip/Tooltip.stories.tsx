@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Trash, Settings, Check } from "lucide-react";
 import Tooltip from ".";
 import Button from "../Button";
-import { faTrash, faCog, faCheck } from "@fortawesome/free-solid-svg-icons";
 import "./styles.css";
 import "../../index.css";
 
@@ -30,7 +30,7 @@ export const Default: Story = {
 export const OnIconButton: Story = {
 	args: {
 		text: ":trash:",
-		children: <Button faIcon={faTrash} />,
+		children: <Button icon={Trash} />,
 	},
 };
 
@@ -39,13 +39,13 @@ export const Group: Story = {
 	render: () => (
 		<div style={{ display: "flex", gap: "10px" }}>
 			<Tooltip text=":trash:">
-				<Button tiny faIcon={faTrash} color="bad" />
+				<Button tiny icon={Trash} color="bad" />
 			</Tooltip>
 			<Tooltip text=":cog:">
-				<Button tiny faIcon={faCog} />
+				<Button tiny icon={Settings} />
 			</Tooltip>
 			<Tooltip text=":check:">
-				<Button tiny faIcon={faCheck} color="good" />
+				<Button tiny icon={Check} color="good" />
 			</Tooltip>
 		</div>
 	),
