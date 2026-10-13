@@ -1,3 +1,7 @@
+import './index.css'
+
+export type { IconType } from './icons'
+
 export { default as Button } from './components/Button'
 export { default as Badge } from './components/Badge'
 export { Box } from './components/Box'

@@ -3,6 +3,18 @@
 	src: url("../assets/NunitoSans.ttf");
 }
 
+@property --seed {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #5865f2;
+}
+
+@property --canvas {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #15151f;
+}
+
 :root {
 	font-family:
 		NunitoSans Verdana,
@@ -11,39 +23,101 @@
 		sans-serif;
 	line-height: 1.5;
 	color-scheme: light dark;
-	transition: 500ms;
 
-	/* Base colors - dark theme */
-	--color-bg-primary: #1e1e30;
-	--color-bg-secondary: #2d2c42;
-	--color-bg-tertiary: #252535;
-	--color-bg-card: #201f31;
-	--color-bg-button: #252535;
-	--color-bg-button-hover: #2f2f3f;
-	--color-bg-button-blue: #5865f2;
-	--color-bg-button-blue-hover: #4452bb;
-	--color-bg-button-disabled: #424492;
-	--color-bg-button-disabled-border: #313480;
+	--seed: #5865f2;
+	--canvas: #15151f;
+	--mix-hover: white;
+	--theme-duration: 500ms;
 
-	--color-border-primary: #2b2b3a;
-	--color-border-secondary: #292938;
-	--color-border-button: #292938;
-	--color-border-button-blue: #6571f3;
-	--color-border-button-blue-hover: #6162e1;
+	transition: --seed var(--theme-duration) ease-out, --canvas var(--theme-duration) ease-out;
+
+	--color-accent: color-mix(in oklch, var(--seed) 80%, white);
+	--color-accent-hover: color-mix(in oklch, var(--seed) 90%, white);
+	--color-accent-secondary: color-mix(in oklch, oklch(from var(--seed) l c calc(h + 40)) 80%, white);
+	--color-accent-secondary-hover: color-mix(in oklch, oklch(from var(--seed) l c calc(h + 40)) 90%, white);
+	--color-accent-tertiary: color-mix(in oklch, oklch(from var(--seed) l c calc(h - 60)) 80%, white);
+	--color-accent-tertiary-hover: color-mix(in oklch, oklch(from var(--seed) l c calc(h - 60)) 90%, white);
+
+	--color-bg-primary: color-mix(in oklch, var(--seed) 8%, var(--canvas));
+	--color-bg-card: color-mix(in oklch, var(--seed) 12%, var(--canvas));
+	--color-bg-secondary: color-mix(in oklch, var(--seed) 20%, var(--canvas));
+	--color-bg-tertiary: color-mix(in oklch, var(--seed) 16%, var(--canvas));
+	--color-bg-button: color-mix(in oklch, var(--seed) 16%, var(--canvas));
+	--color-bg-button-hover: color-mix(in oklch, var(--seed) 24%, var(--canvas));
+
+	--color-border-primary: color-mix(in oklch, var(--seed) 24%, var(--canvas));
+	--color-border-secondary: color-mix(in oklch, var(--seed) 18%, var(--canvas));
+	--color-border-button: color-mix(in oklch, var(--seed) 20%, var(--canvas));
+
+	--color-bg-button-blue: var(--color-accent);
+	--color-bg-button-blue-hover: var(--color-accent-hover);
+	--color-border-button-blue: color-mix(
+		in oklch,
+		var(--seed) 70%,
+		var(--mix-hover)
+	);
+	--color-border-button-blue-hover: color-mix(
+		in oklch,
+		var(--seed) 60%,
+		var(--mix-hover)
+	);
+	--color-bg-button-disabled: color-mix(
+		in oklch,
+		var(--seed) 35%,
+		var(--canvas)
+	);
+	--color-bg-button-disabled-border: color-mix(
+		in oklch,
+		var(--seed) 28%,
+		var(--canvas)
+	);
+
+	--color-accent-blue: var(--color-accent);
+	--color-accent-purple: var(--color-accent-secondary);
+	--color-accent-gray: color-mix(in oklch, var(--seed) 25%, var(--canvas));
+	--color-accent-gray-light: color-mix(
+		in oklch,
+		var(--seed) 30%,
+		var(--canvas)
+	);
+
+	--seed-good: #389b4f;
+	--seed-bad: #d44141;
+	--seed-warn: #ca943c;
+
+	--color-accent-green: var(--seed-good);
+	--color-accent-green-hover: color-mix(
+		in oklch,
+		var(--seed-good) 80%,
+		var(--mix-hover)
+	);
+	--color-accent-red: var(--seed-bad);
+	--color-accent-red-hover: color-mix(
+		in oklch,
+		var(--seed-bad) 80%,
+		var(--mix-hover)
+	);
+	--color-danger: var(--color-accent-red);
+	--color-accent-orange: var(--seed-warn);
+	--color-accent-orange-light: color-mix(
+		in oklch,
+		var(--seed-warn) 80%,
+		var(--mix-hover)
+	);
 
 	--color-text-primary: rgba(255, 255, 255, 0.87);
 	--color-text-secondary: #6c757d;
+	--color-text-tertiary: #8b93a8;
 	--color-text-disabled: #a6ade6;
 	--color-text-success: #325742;
 	--color-text-error: #542d31;
-	--color-text-tertiary: #8b93a8;
 
-	--color-shadow: #1b1b2b;
+	--color-shadow: color-mix(in srgb, var(--canvas) 75%, black);
 	--color-shadow-light: rgba(0, 0, 0, 0.05);
 	--color-shadow-medium: rgba(0, 0, 0, 0.1);
-	--color-overlay: rgba(100, 100, 200, 0.2);
+	--shadow-soft: 0 0 1.25rem rgba(0, 0, 0, 0.28);
+	--color-overlay: color-mix(in srgb, var(--color-accent) 20%, transparent);
 
-	/* Status colors */
 	--color-success: #1f3120;
 	--color-success-border: #2b3a2c;
 	--color-success-light: #d4edda;
@@ -56,27 +130,29 @@
 	--color-error-border: #3a2b2b;
 	--color-error-light: #f8d7da;
 	--color-error-border-light: #f5c6cb;
-	--color-info: #201f31;
-	--color-info-border: #2b2b3a;
+	--color-info: var(--color-bg-card);
+	--color-info-border: var(--color-border-primary);
 
-	/* Special colors */
-	--color-accent-blue: #5865f2;
-	--color-accent-purple: #8c78a1;
-	--color-accent-red: #d44141;
-	--color-accent-red-hover: #eb5757;
-	--color-danger: #d44141;
-	--color-accent-green: #389b4f;
-	--color-accent-green-hover: #51be6c;
-	--color-accent-gray: #3f3f5a;
-	--color-accent-gray-light: #454555;
-	--color-accent-orange: #ca943c;
-	--color-accent-orange-light: #ddae63;
-
-	/* Transparent variants */
-	--color-bg-transparent: rgba(32, 31, 49, 0.4);
-	--color-border-transparent: rgba(47, 47, 63, 0.4);
-	--color-bg-transparent-hover: rgba(47, 47, 63, 0.6);
-	--color-bg-transparent-light: rgba(153, 134, 180, 0.05);
+	--color-bg-transparent: color-mix(
+		in srgb,
+		var(--color-bg-card) 40%,
+		transparent
+	);
+	--color-border-transparent: color-mix(
+		in srgb,
+		var(--color-border-button) 40%,
+		transparent
+	);
+	--color-bg-transparent-hover: color-mix(
+		in srgb,
+		var(--color-border-button) 60%,
+		transparent
+	);
+	--color-bg-transparent-light: color-mix(
+		in srgb,
+		var(--color-accent-secondary) 5%,
+		transparent
+	);
 	--color-modal-overlay: rgba(0, 0, 0, 0.5);
 	--color-white-transparent: rgba(255, 255, 255, 0.87);
 	--color-white-20: rgba(255, 255, 255, 0.12);
@@ -86,22 +162,8 @@
 }
 
 :root[data-theme="light"] {
-	--color-bg-primary: #f0f0f0;
-	--color-bg-secondary: #aaaade;
-	--color-bg-tertiary: #73739e;
-	--color-bg-card: #cacbe1;
-	--color-bg-button: #a1a2d7;
-	--color-bg-button-hover: #b2b0e0;
-	--color-bg-button-blue: #5865f2;
-	--color-bg-button-blue-hover: #7a98f2;
-	--color-bg-button-disabled: #7a8bc4;
-	--color-bg-button-disabled-border: #637daf;
-
-	--color-border-primary: #e0e0e0;
-	--color-border-secondary: rgba(100, 100, 100, 0.1);
-	--color-border-button: #b0b0d3;
-	--color-border-button-blue: #6571f3;
-	--color-border-button-blue-hover: #8a9ef3;
+	--canvas: #f5f5fa;
+	--mix-hover: black;
 
 	--color-text-primary: #213547;
 	--color-text-secondary: #6c757d;
@@ -110,11 +172,8 @@
 	--color-text-error: #a14652;
 
 	--color-shadow: rgba(0, 0, 0, 0.1);
-	--color-shadow-light: rgba(0, 0, 0, 0.05);
-	--color-shadow-medium: rgba(0, 0, 0, 0.1);
-	--color-overlay: rgba(100, 100, 200, 0.4);
+	--color-overlay: color-mix(in srgb, var(--color-accent) 40%, transparent);
 
-	/* Status colors for light theme */
 	--color-success: #d4edda;
 	--color-success-border: #c3e6cb;
 	--color-warning: #fff3cd;
@@ -124,26 +183,130 @@
 	--color-info: #ffffff;
 	--color-info-border: #e0e0e0;
 
-	/* Special colors for light theme */
-	--color-accent-blue: #5865f2;
-	--color-accent-purple: #8c78a1;
-	--color-accent-red: #553d4f;
-	--color-accent-red-hover: #a17893;
-	--color-danger: #a14652;
-	--color-accent-green: #6a8a7d;
-	--color-accent-green-hover: #79a286;
-	--color-accent-gray: #e9ecef;
-	--color-accent-gray-light: #dee2e6;
+	--color-accent-green: color-mix(in oklch, var(--seed-good) 75%, var(--mix-hover));
+	--color-accent-green-hover: color-mix(in oklch, var(--seed-good) 90%, var(--mix-hover));
+	--color-accent-red: color-mix(in oklch, var(--seed-bad) 62%, var(--mix-hover));
+	--color-accent-red-hover: color-mix(in oklch, var(--seed-bad) 80%, var(--mix-hover));
+	--color-accent-orange: color-mix(in oklch, var(--seed-warn) 85%, var(--mix-hover));
+	--color-accent-orange-light: color-mix(in oklch, var(--seed-warn) 95%, var(--mix-hover));
 
-	/* Transparent variants for light theme */
-	--color-bg-transparent: rgba(32, 31, 49, 0.4);
-	--color-border-transparent: rgba(47, 47, 63, 0.4);
-	--color-bg-transparent-hover: rgba(47, 47, 63, 0.6);
-	--color-bg-transparent-light: rgba(153, 134, 180, 0.2);
+	--color-bg-transparent: color-mix(
+		in srgb,
+		var(--color-bg-card) 40%,
+		transparent
+	);
 	--color-modal-overlay: rgba(0, 0, 0, 0.5);
-	--color-white-transparent: rgba(255, 255, 255, 0.87);
-	--color-white-20: rgba(255, 255, 255, 0.12);
 
 	color: var(--color-text-primary);
 	background-color: var(--color-bg-primary);
+}
+
+@supports not ((color: color-mix(in oklch, red, blue)) and (color: oklch(from red l c h))) {
+	:root {
+		--color-accent: #5865f2;
+		--color-accent-hover: #4452bb;
+		--color-accent-secondary: #8c78a1;
+		--color-accent-secondary-hover: #7a6890;
+		--color-accent-tertiary: #4f6bd6;
+		--color-accent-tertiary-hover: #4560c5;
+
+		--color-bg-primary: #1e1e30;
+		--color-bg-card: #201f31;
+		--color-bg-secondary: #2d2c42;
+		--color-bg-tertiary: #252535;
+		--color-bg-button: #252535;
+		--color-bg-button-hover: #2f2f3f;
+
+		--color-border-primary: #2b2b3a;
+		--color-border-secondary: #292938;
+		--color-border-button: #292938;
+
+		--color-bg-button-blue: #5865f2;
+		--color-bg-button-blue-hover: #4452bb;
+		--color-border-button-blue: #6571f3;
+		--color-border-button-blue-hover: #6162e1;
+		--color-bg-button-disabled: #424492;
+		--color-bg-button-disabled-border: #313480;
+
+		--color-accent-blue: #5865f2;
+		--color-accent-purple: #8c78a1;
+		--color-accent-gray: #3f3f5a;
+		--color-accent-gray-light: #454555;
+
+		--color-accent-green: #389b4f;
+		--color-accent-green-hover: #51be6c;
+		--color-accent-red: #d44141;
+		--color-accent-red-hover: #eb5757;
+		--color-danger: #d44141;
+		--color-accent-orange: #ca943c;
+		--color-accent-orange-light: #ddae63;
+
+		--color-shadow: #1b1b2b;
+		--color-overlay: rgba(100, 100, 200, 0.2);
+
+		--color-info: #201f31;
+		--color-info-border: #2b2b3a;
+
+		--color-bg-transparent: rgba(32, 31, 49, 0.4);
+		--color-border-transparent: rgba(47, 47, 63, 0.4);
+		--color-bg-transparent-hover: rgba(47, 47, 63, 0.6);
+		--color-bg-transparent-light: rgba(153, 134, 180, 0.05);
+	}
+
+	:root[data-theme="light"] {
+		--color-accent: #5865f2;
+		--color-accent-hover: #7a98f2;
+		--color-accent-secondary: #8c78a1;
+		--color-accent-secondary-hover: #a193b3;
+		--color-accent-tertiary: #4f6bd6;
+		--color-accent-tertiary-hover: #6f86e0;
+
+		--color-bg-primary: #f0f0f0;
+		--color-bg-card: #cacbe1;
+		--color-bg-secondary: #aaaade;
+		--color-bg-tertiary: #73739e;
+		--color-bg-button: #a1a2d7;
+		--color-bg-button-hover: #b2b0e0;
+
+		--color-border-primary: #e0e0e0;
+		--color-border-secondary: rgba(100, 100, 100, 0.1);
+		--color-border-button: #b0b0d3;
+
+		--color-bg-button-blue: #5865f2;
+		--color-bg-button-blue-hover: #7a98f2;
+		--color-border-button-blue: #6571f3;
+		--color-border-button-blue-hover: #8a9ef3;
+		--color-bg-button-disabled: #7a8bc4;
+		--color-bg-button-disabled-border: #637daf;
+
+		--color-accent-blue: #5865f2;
+		--color-accent-purple: #8c78a1;
+		--color-accent-gray: #e9ecef;
+		--color-accent-gray-light: #dee2e6;
+
+		--color-accent-green: #6a8a7d;
+		--color-accent-green-hover: #79a286;
+		--color-accent-red: #553d4f;
+		--color-accent-red-hover: #a17893;
+		--color-danger: #a14652;
+		--color-accent-orange: #ca943c;
+		--color-accent-orange-light: #ddae63;
+
+		--color-shadow: rgba(0, 0, 0, 0.1);
+		--color-overlay: rgba(100, 100, 200, 0.4);
+
+		--color-info: #ffffff;
+		--color-info-border: #e0e0e0;
+
+		--color-bg-transparent: rgba(32, 31, 49, 0.4);
+		--color-border-transparent: rgba(47, 47, 63, 0.4);
+		--color-bg-transparent-hover: rgba(47, 47, 63, 0.6);
+		--color-bg-transparent-light: rgba(153, 134, 180, 0.2);
+	}
+}
+
+@supports (color: color-mix(in srgb, red, transparent)) {
+	:root {
+		--shadow-soft: 0 0 1.25rem color-mix(in srgb, var(--color-shadow) 45%, transparent);
+	}
 }
