@@ -172,6 +172,7 @@
 	--color-text-error: #a14652;
 
 	--color-shadow: rgba(0, 0, 0, 0.1);
+	--shadow-soft: 0 0 1.25rem rgba(0, 0, 0, 0.2);
 	--color-overlay: color-mix(in srgb, var(--color-accent) 40%, transparent);
 
 	--color-success: #d4edda;
