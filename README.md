@@ -1,3 +1,3 @@
 # razdor-ui: custom Discord-like UI components
 
-<img width="937" height="679" alt="image" src="https://github.com/user-attachments/assets/f918569f-469c-4d92-bded-e5de9155b7b7" />
+<img width="1402" height="878" alt="image" src="https://github.com/user-attachments/assets/a3db39b0-7b20-49dc-994e-800ec4d7e392" />
